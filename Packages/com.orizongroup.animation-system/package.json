@@ -1,0 +1,17 @@
+{
+    "name": "com.orizongroup.animation-system",
+    "displayName": "Node Animation System",
+    "version": "1.0.0",
+    "unity": "2020.3",
+    "description": "Node graph animation system used to create reusable animations stores as nodes in scriptable objects",
+    "keywords": [
+        "graph",
+		"UIElements",
+        "unity",
+        "Animation"
+    ],
+    "category": "Unity",
+    "dependencies": {
+        "com.alelievr.node-graph-processor" : "https://github.com/alelievr/NodeGraphProcessor.git#upm"
+    }
+}

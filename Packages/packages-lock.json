@@ -1,5 +1,20 @@
 {
   "dependencies": {
+    "com.alelievr.node-graph-processor": {
+      "version": "https://github.com/alelievr/NodeGraphProcessor.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9833a319b856de724ab612766d2bf24b43ceee02"
+    },
+    "com.orizongroup.animation-system": {
+      "version": "file:com.orizongroup.animation-system",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.alelievr.node-graph-processor": "https://github.com/alelievr/NodeGraphProcessor.git#upm"
+      }
+    },
     "com.unity.collab-proxy": {
       "version": "1.9.0",
       "depth": 0,
