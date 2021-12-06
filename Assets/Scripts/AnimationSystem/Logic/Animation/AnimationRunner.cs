@@ -1,9 +1,9 @@
-namespace AnimationSystem.ViewManager.Animation
+namespace AnimationSystem.Logic.Animation
 {
     using AnimationSystem.Graph.Animations;
     using AnimationSystem.Graph.Animations.Creation;
-    using AnimationSystem.ViewManager.Animation;
-    using AnimationSystem.ViewManager.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation;
+    using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;

@@ -287,7 +287,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Animables
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Core.ViewManager.Animation.Interfaces.IAnimable,
+      Data: 0|System.Collections.Generic.List`1[[AnimationSystem.ViewManager.Animation.Interfaces.IAnimable,
         Core]], mscorlib
     - Name: 
       Entry: 12
@@ -652,7 +652,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Animables
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Core.ViewManager.Animation.Interfaces.IAnimable,
+      Data: 0|System.Collections.Generic.List`1[[AnimationSystem.ViewManager.Animation.Interfaces.IAnimable,
         Core]], mscorlib
     - Name: 
       Entry: 12
@@ -818,9 +818,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1163090428}
-    - {fileID: 1163090429}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -828,118 +826,19 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Animables
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Core.ViewManager.Animation.Interfaces.IAnimable,
+      Data: 0|System.Collections.Generic.List`1[[AnimationSystem.ViewManager.Animation.Interfaces.IAnimable,
         Core]], mscorlib
     - Name: 
       Entry: 12
       Data: 3
     - Name: 
-      Entry: 7
-      Data: 1|Core.ViewManager.Animation.AnimationTypes.Transform.Scale.ChangeScaleAnimation,
-        Core
-    - Name: objectToScale
-      Entry: 10
-      Data: 0
-    - Name: targetScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: <SequenceAddType>k__BackingField
-      Entry: 3
-      Data: 0
-    - Name: <Delay>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: <AnimationTime>k__BackingField
-      Entry: 4
-      Data: 2
-    - Name: <Ease>k__BackingField
-      Entry: 3
-      Data: 0
-    - Name: <AssignedNodeGUID>k__BackingField
-      Entry: 1
-      Data: f7ffcc51-d176-476c-9012-6b9a2e8790f4
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 2|Core.ViewManager.Animation.AnimationTypes.Rendering.ChangeAlpha.ChangeAlphaAnimation,
-        Core
-    - Name: canvasToChange
-      Entry: 10
-      Data: 1
-    - Name: targetAlpha
-      Entry: 4
-      Data: 0.3
-    - Name: <SequenceAddType>k__BackingField
-      Entry: 3
-      Data: 0
-    - Name: <Delay>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: <AnimationTime>k__BackingField
-      Entry: 4
-      Data: 2
-    - Name: <Ease>k__BackingField
-      Entry: 3
-      Data: 0
-    - Name: <AssignedNodeGUID>k__BackingField
-      Entry: 1
-      Data: bee51da4-f987-47ab-8ae8-cac64870d591
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 3|Core.ViewManager.Animation.AnimationTypes.Transform.Scale.ChangeScaleAnimation,
-        Core
-    - Name: objectToScale
-      Entry: 10
-      Data: 0
-    - Name: targetScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: <SequenceAddType>k__BackingField
-      Entry: 3
-      Data: 0
-    - Name: <Delay>k__BackingField
-      Entry: 4
-      Data: 0
-    - Name: <AnimationTime>k__BackingField
-      Entry: 4
-      Data: 2
-    - Name: <Ease>k__BackingField
-      Entry: 3
-      Data: 0
-    - Name: <AssignedNodeGUID>k__BackingField
-      Entry: 1
-      Data: b8315d20-abfb-4ad8-a052-ae532a902d89
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -976,4 +875,4 @@ MonoBehaviour:
     - GraphParameterName: BoxToRotate
       ObjectToAnimate: {fileID: 565371819}
       ObjectAnimator: {fileID: 1155035032}
-    SampleGraph: {fileID: 11400000, guid: 212037393313c3f40a39fa6ec0819977, type: 2}
+    SampleGraph: {fileID: 11400000, guid: 688c9af99d772a743b241e506ececd2a, type: 2}

@@ -1,6 +1,6 @@
-namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Transform.Layout
+namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Layout
 {
-    using AnimationSystem.ViewManager.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;

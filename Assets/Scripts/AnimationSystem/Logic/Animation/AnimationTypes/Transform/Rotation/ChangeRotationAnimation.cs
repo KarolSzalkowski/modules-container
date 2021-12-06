@@ -1,21 +1,19 @@
-namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Rendering.FontColor
+namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
 {
-    using AnimationSystem.ViewManager.Animation;
-    using AnimationSystem.ViewManager.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;
     using System;
-    using TMPro;
     using UnityEngine;
 
     [System.Serializable]
-    public class ChangeFontColorAnimation : IAnimable
+    public class ChangeRotationAnimation : IAnimable
     {
-        [BoxGroup("UI Move Config"), SerializeField, Tooltip("TMP to change text color")]
-        private TextMeshProUGUI textToManage;
-        [BoxGroup("UI Move Config"), SerializeField, Tooltip("TMP font target color")]
-        private Color targetColor;
+        [BoxGroup("Object Config"), SerializeField, Tooltip("Object you want to change rotation")]
+        private RectTransform objectToRotate;
+        [BoxGroup("Object Config"), SerializeField, Tooltip("Target Rotation in euler angles")]
+        private Vector3 targetEulersRot;
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public SequenceAddType SequenceAddType { get; private set; }
@@ -39,17 +37,17 @@ namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Rendering.FontCol
 
         public Type GetAnimableType()
         {
-            return typeof(TextMeshProUGUI);
+            return typeof(RectTransform);
         }
 
         public Tween GetTween()
         {
-            return textToManage.DOColor(targetColor, AnimationTime).SetDelay(Delay).SetEase(Ease);
+            return objectToRotate.DORotate(targetEulersRot, AnimationTime, RotateMode.LocalAxisAdd).SetDelay(Delay).SetEase(Ease);
         }
 
         public void SetAnimableObject(GameObject gameObject)
         {
-            textToManage = gameObject.GetComponent<TextMeshProUGUI>();
+            objectToRotate = gameObject.GetComponent<RectTransform>();
         }
     }
 }

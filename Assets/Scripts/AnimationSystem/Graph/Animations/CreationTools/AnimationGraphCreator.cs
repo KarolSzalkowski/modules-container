@@ -1,6 +1,6 @@
 namespace AnimationSystem.Graph.Animations.Creation
 {
-    using AnimationSystem.ViewManager.Animation;
+    using AnimationSystem.Logic.Animation;
     using GraphProcessor;
     using Sirenix.OdinInspector;
     using System.Collections;

@@ -1,26 +1,27 @@
-namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Transform.Rotation
+namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeColor
 {
-    using AnimationSystem.ViewManager.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;
     using System;
     using UnityEngine;
+    using UnityEngine.UI;
 
     [System.Serializable]
-    public class ChangeRotationAnimation : IAnimable
+    public class ChangeColorAnimation : IAnimable
     {
-        [BoxGroup("Object Config"), SerializeField, Tooltip("Object you want to change rotation")]
-        private RectTransform objectToRotate;
-        [BoxGroup("Object Config"), SerializeField, Tooltip("Target Rotation in euler angles")]
-        private Vector3 targetEulersRot;
+        [BoxGroup("Change Color Config"), SerializeField]
+        private Image imageToChange;
+        [BoxGroup("Change Color Config"), SerializeField]
+        private Color targetColor;
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public SequenceAddType SequenceAddType { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float Delay { get; private set; }
-
+        
         [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
@@ -37,17 +38,18 @@ namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Transform.Rotatio
 
         public Type GetAnimableType()
         {
-            return typeof(RectTransform);
+            return typeof(Image);
         }
 
         public Tween GetTween()
         {
-            return objectToRotate.DORotate(targetEulersRot, AnimationTime, RotateMode.LocalAxisAdd).SetDelay(Delay).SetEase(Ease);
+            return imageToChange.DOColor(targetColor, AnimationTime).SetDelay(Delay).SetEase(Ease);
         }
 
         public void SetAnimableObject(GameObject gameObject)
         {
-            objectToRotate = gameObject.GetComponent<RectTransform>();
+            imageToChange = gameObject.GetComponent<Image>();
         }
     }
+
 }

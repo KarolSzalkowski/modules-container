@@ -2,8 +2,8 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes
 {
 	using UnityEngine;
 	using GraphProcessor;
-	using AnimationSystem.ViewManager.Animation;
-    using AnimationSystem.ViewManager.Animation.AnimationTypes.Rendering.ChangeAlpha;
+	using AnimationSystem.Logic.Animation;
+    using AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha;
     using System;
 
     [System.Serializable, NodeMenuItem("Animation/Rendering/Alpha Animation")]

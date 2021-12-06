@@ -1,4 +1,4 @@
-namespace AnimationSystem.ViewManager.Animation.Interfaces
+namespace AnimationSystem.Logic.Animation.Interfaces
 {
     using AnimationSystem.Graph.Animations;
     using DG.Tweening;

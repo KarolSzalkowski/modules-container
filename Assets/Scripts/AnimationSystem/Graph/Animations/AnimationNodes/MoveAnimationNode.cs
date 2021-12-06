@@ -2,9 +2,9 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes
 {
 	using UnityEngine;
 	using GraphProcessor;
-	using AnimationSystem.ViewManager.Animation;
+	using AnimationSystem.Logic.Animation;
 	using System;
-    using AnimationSystem.ViewManager.Animation.AnimationTypes.Transform.Position;
+    using AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position;
 
     [System.Serializable, NodeMenuItem("Animation/Transform/Move Animation")]
 	public class MoveAnimationNode : AnimationNode

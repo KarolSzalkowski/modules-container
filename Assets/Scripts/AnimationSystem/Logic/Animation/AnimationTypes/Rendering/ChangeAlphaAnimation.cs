@@ -1,7 +1,7 @@
-namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Rendering.ChangeAlpha
+namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
 {
     using AnimationSystem.Graph.Animations.AnimationNodes;
-    using AnimationSystem.ViewManager.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;

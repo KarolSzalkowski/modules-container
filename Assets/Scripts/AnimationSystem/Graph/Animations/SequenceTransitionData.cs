@@ -1,6 +1,6 @@
 namespace AnimationSystem.Graph.Animations
 {
-    using AnimationSystem.ViewManager.Animation;
+    using AnimationSystem.Logic.Animation;
     using DG.Tweening;
     using System.Collections;
     using System.Collections.Generic;

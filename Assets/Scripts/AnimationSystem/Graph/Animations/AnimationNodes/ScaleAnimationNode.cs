@@ -6,8 +6,8 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes
 	using GraphProcessor;
 	using System.Linq;
     using DG.Tweening;
-    using AnimationSystem.ViewManager.Animation;
-    using AnimationSystem.ViewManager.Animation.AnimationTypes.Transform.Scale;
+    using AnimationSystem.Logic.Animation;
+    using AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale;
     using System;
 
     [System.Serializable, NodeMenuItem("Animation/Transform/Scale Animation")]

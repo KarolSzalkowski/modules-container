@@ -1,4 +1,4 @@
-﻿namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Transform.Position
+﻿namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
 {
     using System;
     using DG.Tweening;
@@ -8,16 +8,16 @@
     using UnityEngine;
 
     [Serializable]
-    public class AnchorMaxMoveAnimation : IAnimable
+    public class AnchorMinMoveAnimation : IAnimable
     {
         [BoxGroup("UI Move Config"), SerializeField, Tooltip("Object you want to move on Canvas")]
         private RectTransform targetRect;
 
         [BoxGroup("UI Move Config"), SerializeField, Tooltip("Object target anchored position at the end of animation")]
         private Vector2 targetAnchor;
-
+        
         [field: SerializeField, BoxGroup("Main animation config")]
-        public SequenceAddType SequenceAddType { get; private set; } = SequenceAddType.Join;
+        public SequenceAddType SequenceAddType { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float Delay { get; private set; }
@@ -43,8 +43,14 @@
 
         public Tween GetTween()
         {
-            return targetRect.DOAnchorMax(targetAnchor, 
-                AnimationTime).SetEase(Ease).SetDelay(Delay);
+            var anchorTween = targetRect.DOAnchorMin(new Vector2(targetAnchor.x, targetAnchor.y), 
+                    AnimationTime).SetEase(Ease).SetDelay(Delay);
+                anchorTween.onUpdate += () =>
+            {
+                targetRect.offsetMax = Vector2.zero;
+                targetRect.offsetMin = Vector2.zero;
+            };
+            return anchorTween;
         }
 
         public void SetAnimableObject(GameObject gameObject)

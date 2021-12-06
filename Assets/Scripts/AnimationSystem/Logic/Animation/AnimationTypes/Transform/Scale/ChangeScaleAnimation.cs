@@ -1,7 +1,7 @@
-namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Transform.Scale
+namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
 {
     using AnimationSystem.Graph.Animations.AnimationNodes;
-    using AnimationSystem.ViewManager.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;

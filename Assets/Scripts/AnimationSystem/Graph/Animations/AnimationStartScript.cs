@@ -5,7 +5,7 @@ namespace AnimationSystem.Graph.Animations
 	using UnityEngine;
 	using GraphProcessor;
 	using System.Linq;
-    using AnimationSystem.ViewManager.Animation;
+    using AnimationSystem.Logic.Animation;
     using DG.Tweening;
 	using AnimationSystem.Graph.Animations.AnimationNodes;
 

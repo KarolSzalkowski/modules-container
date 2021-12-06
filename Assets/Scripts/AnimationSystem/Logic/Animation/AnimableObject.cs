@@ -1,6 +1,6 @@
-namespace AnimationSystem.ViewManager.Animation
+namespace AnimationSystem.Logic.Animation
 {
-    using AnimationSystem.ViewManager.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation.Interfaces;
     using Sirenix.OdinInspector;
     using System;
     using System.Collections;

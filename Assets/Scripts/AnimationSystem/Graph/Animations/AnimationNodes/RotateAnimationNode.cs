@@ -2,9 +2,9 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes
 {
 	using UnityEngine;
 	using GraphProcessor;
-	using AnimationSystem.ViewManager.Animation;
+	using AnimationSystem.Logic.Animation;
 	using System;
-    using AnimationSystem.ViewManager.Animation.AnimationTypes.Transform.Rotation;
+    using AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation;
 
     [System.Serializable, NodeMenuItem("Animation/Transform/Rotate Animation")]
 	public class RotateAnimationNode : AnimationNode

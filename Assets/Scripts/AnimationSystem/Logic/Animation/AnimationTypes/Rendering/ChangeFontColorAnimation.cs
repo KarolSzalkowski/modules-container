@@ -1,19 +1,20 @@
-namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Rendering.ChangeColor
+namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.FontColor
 {
-    using AnimationSystem.ViewManager.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation;
+    using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;
     using System;
+    using TMPro;
     using UnityEngine;
-    using UnityEngine.UI;
 
     [System.Serializable]
-    public class ChangeColorAnimation : IAnimable
+    public class ChangeFontColorAnimation : IAnimable
     {
-        [BoxGroup("Change Color Config"), SerializeField]
-        private Image imageToChange;
-        [BoxGroup("Change Color Config"), SerializeField]
+        [BoxGroup("UI Move Config"), SerializeField, Tooltip("TMP to change text color")]
+        private TextMeshProUGUI textToManage;
+        [BoxGroup("UI Move Config"), SerializeField, Tooltip("TMP font target color")]
         private Color targetColor;
 
         [field: SerializeField, BoxGroup("Main animation config")]
@@ -21,7 +22,7 @@ namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Rendering.ChangeC
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float Delay { get; private set; }
-        
+
         [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
@@ -38,18 +39,17 @@ namespace AnimationSystem.ViewManager.Animation.AnimationTypes.Rendering.ChangeC
 
         public Type GetAnimableType()
         {
-            return typeof(Image);
+            return typeof(TextMeshProUGUI);
         }
 
         public Tween GetTween()
         {
-            return imageToChange.DOColor(targetColor, AnimationTime).SetDelay(Delay).SetEase(Ease);
+            return textToManage.DOColor(targetColor, AnimationTime).SetDelay(Delay).SetEase(Ease);
         }
 
         public void SetAnimableObject(GameObject gameObject)
         {
-            imageToChange = gameObject.GetComponent<Image>();
+            textToManage = gameObject.GetComponent<TextMeshProUGUI>();
         }
     }
-
 }

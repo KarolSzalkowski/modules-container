@@ -5,9 +5,9 @@ namespace AnimationSystem.Graph.Animations
 	using GraphProcessor;
 	using System.Linq;
 	using DG.Tweening;
-    using AnimationSystem.ViewManager.Animation;
-    using AnimationSystem.ViewManager.Animation.Interfaces;
-    using AnimationSystem.ViewManager.Animation.AnimationTypes.Rendering.ChangeAlpha;
+    using AnimationSystem.Logic.Animation;
+    using AnimationSystem.Logic.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha;
     using System;
 
     [System.Serializable, NodeMenuItem("Custom/AnimationNode")]
