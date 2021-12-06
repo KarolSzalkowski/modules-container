@@ -12,9 +12,6 @@
     ],
     "category": "Unity",
     "gitDependencies": {
-        "com.alelievr.node-graph-processor" : "https://github.com/alelievr/NodeGraphProcessor.git#1.3.0"
-    },
-	"dependencies": {
-		"com.alelievr.node-graph-processor" : "1.3.0"
-	}
+        "com.alelievr.node-graph-processor" : "https://github.com/alelievr/NodeGraphProcessor.git#v1.3.0"
+    }
 }
