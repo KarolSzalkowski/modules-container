@@ -13,6 +13,8 @@ namespace AnimationSystem.Graph.Animations
 	[System.Serializable, NodeMenuItem("Animation/Animation Start")]
 	public class AnimationStartScript : BaseNode
 	{
+		private float currentAnimationTime = 0;
+
 		[Output(name = "Out")]
 		public List<SequenceTransitionData> output;
 
@@ -20,6 +22,8 @@ namespace AnimationSystem.Graph.Animations
 
 		protected override void Process()
 		{
+			currentAnimationTime = 0;
+
 			var firstPart = outputPorts[0].GetEdges()[0].inputNode as AnimationNode;
 
 			var sequenceData = firstPart.GetSequenceData(SequenceAddType.Append);
@@ -35,18 +39,18 @@ namespace AnimationSystem.Graph.Animations
 
 		private void AddSequence(Sequence seq, SequenceTransitionData sequenceTransitionData, float insertTime)
         {
-			var sequenceTime = seq.fullPosition;
-
 			foreach (var appended in sequenceTransitionData.AppendedSequences)
 			{
 				var time = sequenceTransitionData.Tween.Duration() + sequenceTransitionData.Tween.Delay();
 				seq.Insert(insertTime + time, appended.Tween);
-				AddSequence(seq, appended, sequenceTime + time);
+				Debug.Log($"Animation appended {appended.GetType()} addaed at time: {insertTime + time}");
+				AddSequence(seq, appended, insertTime + time);
 			}
 
 			foreach (var joined in sequenceTransitionData.JoinedSequences)
 			{
 				seq.Insert(insertTime, joined.Tween);
+				Debug.Log($"Animation joined {joined.GetType()} addaed at time: {insertTime}");
 				AddSequence(seq, joined, insertTime);
 			}
 

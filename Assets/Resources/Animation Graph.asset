@@ -17,6 +17,12 @@ MonoBehaviour:
   - id: 0
   - id: 1
   - id: 2
+  - id: 3
+  - id: 4
+  - id: 5
+  - id: 6
+  - id: 7
+  - id: 8
   edges:
   - GUID: fb0e863a-37b2-4859-94cf-be24ab50b5cc
     owner: {fileID: 11400000}
@@ -30,6 +36,54 @@ MonoBehaviour:
     owner: {fileID: 11400000}
     inputNodeGUID: 7bdf1c3f-95b7-456c-a591-0eeea4588777
     outputNodeGUID: b849a72f-f2c2-4a53-a2f1-3ff4c20e53ca
+    inputFieldName: animableGo
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: output
+  - GUID: 357cce4d-bda6-422a-84e6-f3d1d5985c12
+    owner: {fileID: 11400000}
+    inputNodeGUID: 1301678e-88ca-4d78-be33-419b1f6a317a
+    outputNodeGUID: b2805d27-ca8c-4532-8069-9febc0933e7d
+    inputFieldName: animableGo
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: output
+  - GUID: 2ff05c53-7971-41a1-8d1e-1c2f0bbb8838
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0833932a-a47a-499a-936b-ab68e675f1ca
+    outputNodeGUID: 0312fc32-8a75-413c-ba15-30b772cef9d6
+    inputFieldName: animableGo
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: output
+  - GUID: 2f46281a-6661-4400-8b04-057da11fa7f4
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0833932a-a47a-499a-936b-ab68e675f1ca
+    outputNodeGUID: 7bdf1c3f-95b7-456c-a591-0eeea4588777
+    inputFieldName: input
+    outputFieldName: outputAppend
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 37443c2c-ca25-4f7d-873e-ba4a1c9fe019
+    owner: {fileID: 11400000}
+    inputNodeGUID: 1301678e-88ca-4d78-be33-419b1f6a317a
+    outputNodeGUID: 7bdf1c3f-95b7-456c-a591-0eeea4588777
+    inputFieldName: input
+    outputFieldName: outputJoin
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 2464307a-c777-4586-94ac-2fa4e7bbd389
+    owner: {fileID: 11400000}
+    inputNodeGUID: e916fa7c-7216-4b64-bd89-d517f6e7754f
+    outputNodeGUID: 1301678e-88ca-4d78-be33-419b1f6a317a
+    inputFieldName: input
+    outputFieldName: outputJoin
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: e36c369c-e051-48b9-9d80-a9a2d3daff1c
+    owner: {fileID: 11400000}
+    inputNodeGUID: e916fa7c-7216-4b64-bd89-d517f6e7754f
+    outputNodeGUID: 075d1a59-d234-4143-bf6e-b6bf5e530475
     inputFieldName: animableGo
     outputFieldName: output
     inputPortIdentifier: 
@@ -48,12 +102,12 @@ MonoBehaviour:
       serializedType: GraphProcessor.ExposedParameterView, com.alelievr.NodeGraphProcessor.Editor,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   exposedParameters:
-  - id: 3
-  - id: 4
+  - id: 9
+  - id: 10
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 202, y: 228, z: 0}
+  position: {x: -150, y: 173, z: 0}
   scale: {x: 0.49717674, y: 0.49717674, z: 1}
   <AnimableObjects>k__BackingField: []
   references:
@@ -126,6 +180,132 @@ MonoBehaviour:
         parameterGUID: 5000105d-f591-456b-a3ea-deaee1f3ae63
         accessor: 0
     00000003:
+      type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: b2805d27-ca8c-4532-8069-9febc0933e7d
+        computeOrder: 3
+        position:
+          serializedVersion: 2
+          x: 429.00006
+          y: 181.9325
+          width: 101
+          height: 37
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        parameterGUID: 5000105d-f591-456b-a3ea-deaee1f3ae63
+        accessor: 0
+    00000004:
+      type: {class: RotateAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Transform, asm: com.orizongroup.animation-system}
+      data:
+        nodeCustomName: 
+        GUID: 1301678e-88ca-4d78-be33-419b1f6a317a
+        computeOrder: 4
+        position:
+          serializedVersion: 2
+          x: 551.4825
+          y: 104.4775
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        NodeId: 0
+        animableGo: {fileID: 0}
+        ChangeRotationAnimation:
+          objectToRotate: {fileID: 0}
+          targetEulersRot: {x: 0, y: 0, z: 180}
+          <SequenceAddType>k__BackingField: 0
+          <Delay>k__BackingField: 0
+          <AnimationTime>k__BackingField: 3
+          <Ease>k__BackingField: 10
+          <AssignedNodeGUID>k__BackingField: 
+    00000005:
+      type: {class: AlphaAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Rendering, asm: com.orizongroup.animation-system}
+      data:
+        nodeCustomName: 
+        GUID: 0833932a-a47a-499a-936b-ab68e675f1ca
+        computeOrder: 6
+        position:
+          serializedVersion: 2
+          x: 681.6919
+          y: 487.00006
+          width: 182
+          height: 140
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        NodeId: 0
+        animableGo: {fileID: 0}
+        ChangeAlphaAnimation:
+          canvasToChange: {fileID: 0}
+          targetAlpha: 0
+          <SequenceAddType>k__BackingField: 0
+          <Delay>k__BackingField: 0
+          <AnimationTime>k__BackingField: 2
+          <Ease>k__BackingField: 17
+          <AssignedNodeGUID>k__BackingField: 
+    00000006:
+      type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 0312fc32-8a75-413c-ba15-30b772cef9d6
+        computeOrder: 5
+        position:
+          serializedVersion: 2
+          x: 551
+          y: 590
+          width: 101
+          height: 37
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        parameterGUID: 5000105d-f591-456b-a3ea-deaee1f3ae63
+        accessor: 0
+    00000007:
+      type: {class: ScaleAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Transform, asm: com.orizongroup.animation-system}
+      data:
+        nodeCustomName: 
+        GUID: e916fa7c-7216-4b64-bd89-d517f6e7754f
+        computeOrder: 8
+        position:
+          serializedVersion: 2
+          x: 1130.3827
+          y: 239.3515
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        NodeId: 0
+        animableGo: {fileID: 0}
+        ChangeScaleAnimation:
+          objectToScale: {fileID: 0}
+          targetScale: {x: 0, y: 0, z: 0}
+          <SequenceAddType>k__BackingField: 0
+          <Delay>k__BackingField: 0
+          <AnimationTime>k__BackingField: 2
+          <Ease>k__BackingField: 9
+          <AssignedNodeGUID>k__BackingField: 
+    00000008:
+      type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 075d1a59-d234-4143-bf6e-b6bf5e530475
+        computeOrder: 7
+        position:
+          serializedVersion: 2
+          x: 931.2583
+          y: 325.83987
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        parameterGUID: 5000105d-f591-456b-a3ea-deaee1f3ae63
+        accessor: 0
+    00000009:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         guid: 5000105d-f591-456b-a3ea-deaee1f3ae63
@@ -137,9 +317,9 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 5
+          id: 11
         val: {fileID: 0}
-    00000004:
+    0000000A:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         guid: 6fe46e73-10fc-44e2-8163-8a1c0d00b61d
@@ -151,15 +331,15 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 6
+          id: 12
         val: {fileID: 0}
-    00000005:
+    0000000B:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
         guid: 5000105d-f591-456b-a3ea-deaee1f3ae63
-    00000006:
+    0000000C:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
