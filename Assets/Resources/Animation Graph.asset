@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44306a0b8006d254a8d36c5ac31b1160, type: 3}
+  m_Name: Animation Graph
+  m_EditorClassIdentifier: 
+  serializedNodes: []
+  nodes:
+  - id: 0
+  - id: 1
+  - id: 2
+  edges:
+  - GUID: fb0e863a-37b2-4859-94cf-be24ab50b5cc
+    owner: {fileID: 11400000}
+    inputNodeGUID: 7bdf1c3f-95b7-456c-a591-0eeea4588777
+    outputNodeGUID: 0702b947-bb96-41f3-9101-b0a6f4013ea0
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 70487166-5a80-4e01-a0de-d83bb6e4171a
+    owner: {fileID: 11400000}
+    inputNodeGUID: 7bdf1c3f-95b7-456c-a591-0eeea4588777
+    outputNodeGUID: b849a72f-f2c2-4a53-a2f1-3ff4c20e53ca
+    inputFieldName: animableGo
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: output
+  groups: []
+  stackNodes: []
+  pinnedElements:
+  - position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 150
+      height: 200
+    opened: 1
+    editorType:
+      serializedType: GraphProcessor.ExposedParameterView, com.alelievr.NodeGraphProcessor.Editor,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  exposedParameters:
+  - id: 3
+  - id: 4
+  serializedParameterList: []
+  stickyNotes: []
+  nodeInspectorReference: {fileID: 0}
+  position: {x: 202, y: 228, z: 0}
+  scale: {x: 0.49717674, y: 0.49717674, z: 1}
+  <AnimableObjects>k__BackingField: []
+  references:
+    version: 1
+    00000000:
+      type: {class: AnimationStartScript, ns: AnimationSystem.Graph.Animations, asm: com.orizongroup.animation-system}
+      data:
+        nodeCustomName: 
+        GUID: 0702b947-bb96-41f3-9101-b0a6f4013ea0
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: -200
+          y: 0
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+    00000001:
+      type: {class: PathAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Transform, asm: com.orizongroup.animation-system}
+      data:
+        nodeCustomName: 
+        GUID: 7bdf1c3f-95b7-456c-a591-0eeea4588777
+        computeOrder: 2
+        position:
+          serializedVersion: 2
+          x: 72.73749
+          y: 62.157497
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        NodeId: 0
+        animableGo: {fileID: 0}
+        PathAnimation:
+          objectToMove: {fileID: 0}
+          movingPath:
+          - {x: 0, y: 143, z: 0}
+          - {x: 50, y: 100, z: 0}
+          - {x: 200, y: 200, z: 0}
+          - {x: 100, y: 100, z: 0}
+          - {x: 0, y: -100, z: 0}
+          - {x: -80, y: 0, z: 0}
+          - {x: 0, y: 143, z: 0}
+          - {x: 50, y: 143, z: 0}
+          - {x: 100, y: 20, z: 0}
+          pathType: 2
+          <SequenceAddType>k__BackingField: 0
+          <Delay>k__BackingField: 0
+          <AnimationTime>k__BackingField: 3
+          <Ease>k__BackingField: 1
+          <AssignedNodeGUID>k__BackingField: 
+    00000002:
+      type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: b849a72f-f2c2-4a53-a2f1-3ff4c20e53ca
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: -43.64251
+          y: 120.347496
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        parameterGUID: 5000105d-f591-456b-a3ea-deaee1f3ae63
+        accessor: 0
+    00000003:
+      type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        guid: 5000105d-f591-456b-a3ea-deaee1f3ae63
+        name: BoxToScale
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 5
+        val: {fileID: 0}
+    00000004:
+      type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        guid: 6fe46e73-10fc-44e2-8163-8a1c0d00b61d
+        name: BoxToRotate
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 6
+        val: {fileID: 0}
+    00000005:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 5000105d-f591-456b-a3ea-deaee1f3ae63
+    00000006:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 6fe46e73-10fc-44e2-8163-8a1c0d00b61d

@@ -1,12 +1,11 @@
 namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
 {
-    using AnimationSystem.Graph.Animations.AnimationNodes;
+    using AnimationSystem.Graph.Animations.AnimationNodes.Rendering;
     using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;
     using System;
-    using UnityEditor;
     using UnityEngine;
 
     [System.Serializable]
@@ -39,7 +38,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
 
         public void CreateNode(BaseGraph baseGraph, Vector2 position, ParameterNode goParameter)
         {
-            var node = AlphaAnimationNode.CreateFromType<AlphaAnimationNode>(position);
+            var node = BaseNode.CreateFromType<AlphaAnimationNode>(position);
             node.ChangeAlphaAnimation = this;
             baseGraph.AddNode(node);
             baseGraph.Connect(node.inputPorts[0], goParameter.outputPorts[0]);

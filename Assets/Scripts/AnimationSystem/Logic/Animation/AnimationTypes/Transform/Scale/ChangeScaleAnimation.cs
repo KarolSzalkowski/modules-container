@@ -1,6 +1,6 @@
 namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
 {
-    using AnimationSystem.Graph.Animations.AnimationNodes;
+    using AnimationSystem.Graph.Animations.AnimationNodes.Transform;
     using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
@@ -48,7 +48,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
 
         public void CreateNode(BaseGraph baseGraph, Vector2 position, ParameterNode goParameter)
         {
-            var node = ScaleAnimationNode.CreateFromType<ScaleAnimationNode>(position);
+            var node = BaseNode.CreateFromType<ScaleAnimationNode>(position);
             node.ChangeScaleAnimation = this;
             node.expanded = true;
             baseGraph.AddNode(node);

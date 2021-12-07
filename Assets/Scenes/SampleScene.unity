@@ -287,8 +287,8 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Animables
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[AnimationSystem.ViewManager.Animation.Interfaces.IAnimable,
-        Core]], mscorlib
+      Data: 0|System.Collections.Generic.List`1[[AnimationSystem.Logic.Animation.Interfaces.IAnimable,
+        com.orizongroup.animation-system]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -652,8 +652,8 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Animables
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[AnimationSystem.ViewManager.Animation.Interfaces.IAnimable,
-        Core]], mscorlib
+      Data: 0|System.Collections.Generic.List`1[[AnimationSystem.Logic.Animation.Interfaces.IAnimable,
+        com.orizongroup.animation-system]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -826,8 +826,8 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Animables
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[AnimationSystem.ViewManager.Animation.Interfaces.IAnimable,
-        Core]], mscorlib
+      Data: 0|System.Collections.Generic.List`1[[AnimationSystem.Logic.Animation.Interfaces.IAnimable,
+        com.orizongroup.animation-system]], mscorlib
     - Name: 
       Entry: 12
       Data: 3
@@ -875,4 +875,4 @@ MonoBehaviour:
     - GraphParameterName: BoxToRotate
       ObjectToAnimate: {fileID: 565371819}
       ObjectAnimator: {fileID: 1155035032}
-    SampleGraph: {fileID: 11400000, guid: 688c9af99d772a743b241e506ececd2a, type: 2}
+    SampleGraph: {fileID: 11400000, guid: 36f15648fda86734ab0790ae3f61ff76, type: 2}

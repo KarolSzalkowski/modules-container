@@ -1,20 +1,22 @@
-namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
+namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
 {
-    using AnimationSystem.Graph.Animations.AnimationNodes.Transform;
     using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;
     using System;
     using UnityEngine;
+    using UnityEngine.UI;
 
     [System.Serializable]
-    public class ChangeRotationAnimation : IAnimable
+    public class PathAnimation : IAnimable
     {
-        [BoxGroup("Object Config"), SerializeField, Tooltip("Object you want to change rotation")]
-        private RectTransform objectToRotate;
-        [BoxGroup("Object Config"), SerializeField, Tooltip("Target Rotation in euler angles")]
-        private Vector3 targetEulersRot;
+        [BoxGroup("UI Move Config"), SerializeField, Tooltip("Layout Object you want to move with specified path")]
+        private Transform objectToMove;
+        [BoxGroup("UI Move Config"), SerializeField, Tooltip("List of points that object is going to move trough")]
+        private Vector3[] movingPath = new Vector3[1];
+        [BoxGroup("UI Move Config"), SerializeField, Tooltip("Path movement type")]
+        private PathType pathType = PathType.Linear;
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public SequenceAddType SequenceAddType { get; private set; }
@@ -33,28 +35,22 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
 
         public void CreateNode(BaseGraph baseGraph, Vector2 position, ParameterNode goParameter)
         {
-            var node = BaseNode.CreateFromType<RotateAnimationNode>(position);
-            node.ChangeRotationAnimation = this;
-            node.expanded = true;
-            baseGraph.AddNode(node);
-            baseGraph.Connect(node.inputPorts[0], goParameter.outputPorts[0]);
-            AssignedNodeGUID = node.GUID;
-            baseGraph.NotifyNodeChanged(node);
+            throw new NotImplementedException();
         }
 
         public Type GetAnimableType()
         {
-            return typeof(RectTransform);
+            return typeof(Transform);
         }
 
         public Tween GetTween()
         {
-            return objectToRotate.DORotate(targetEulersRot, AnimationTime, RotateMode.LocalAxisAdd).SetDelay(Delay).SetEase(Ease);
+            return objectToMove.DOLocalPath(movingPath, AnimationTime, pathType).SetDelay(Delay).SetEase(Ease);
         }
 
         public void SetAnimableObject(GameObject gameObject)
         {
-            objectToRotate = gameObject.GetComponent<RectTransform>();
+            objectToMove = gameObject.GetComponent<Transform>();
         }
     }
 }
