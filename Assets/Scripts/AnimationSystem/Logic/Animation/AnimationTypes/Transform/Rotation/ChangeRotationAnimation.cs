@@ -12,7 +12,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
     public class ChangeRotationAnimation : IAnimable
     {
         [BoxGroup("Object Config"), SerializeField, Tooltip("Object you want to change rotation")]
-        private RectTransform objectToRotate;
+        private Transform objectToRotate;
         [BoxGroup("Object Config"), SerializeField, Tooltip("Target Rotation in euler angles")]
         private Vector3 targetEulersRot;
 
@@ -44,7 +44,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
 
         public Type GetAnimableType()
         {
-            return typeof(RectTransform);
+            return typeof(Transform);
         }
 
         public Tween GetTween()
@@ -54,7 +54,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
 
         public void SetAnimableObject(GameObject gameObject)
         {
-            objectToRotate = gameObject.GetComponent<RectTransform>();
+            objectToRotate = gameObject.GetComponent<Transform>();
         }
     }
 }

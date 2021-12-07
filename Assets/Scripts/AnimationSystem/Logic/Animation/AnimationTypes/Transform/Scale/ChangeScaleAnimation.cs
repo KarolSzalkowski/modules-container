@@ -12,7 +12,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
     public class ChangeScaleAnimation : IAnimable
     {
         [BoxGroup("Object Config"), SerializeField, Tooltip("Object you want to change size")]
-        private RectTransform objectToScale;
+        private Transform objectToScale;
         [BoxGroup("Object Config"), SerializeField, Tooltip("Target Scale")]
         private Vector3 targetScale;
 
@@ -33,12 +33,12 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
 
         public Type GetAnimableType()
         {
-            return typeof(RectTransform);
+            return typeof(Transform);
         }
 
         public void SetAnimableObject(GameObject gameObject)
         {
-            objectToScale = gameObject.GetComponent<RectTransform>();
+            objectToScale = gameObject.GetComponent<Transform>();
         }
 
         public Tween GetTween()
