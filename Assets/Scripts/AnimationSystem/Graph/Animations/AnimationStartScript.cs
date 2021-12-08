@@ -41,16 +41,16 @@ namespace AnimationSystem.Graph.Animations
         {
 			foreach (var appended in sequenceTransitionData.AppendedSequences)
 			{
-				var time = sequenceTransitionData.Tween.Duration() + sequenceTransitionData.Tween.Delay();
+				var time = sequenceTransitionData.Tween.Duration() + sequenceTransitionData.Delay;
 				seq.Insert(insertTime + time, appended.Tween);
-				Debug.Log($"Animation appended {appended.GetType()} addaed at time: {insertTime + time}");
+				Debug.Log($"Animation appended {appended.Tween.GetType()} addaed at time: {insertTime + time} with delay {sequenceTransitionData.Delay}");
 				AddSequence(seq, appended, insertTime + time);
 			}
 
 			foreach (var joined in sequenceTransitionData.JoinedSequences)
 			{
 				seq.Insert(insertTime, joined.Tween);
-				Debug.Log($"Animation joined {joined.GetType()} addaed at time: {insertTime}");
+				Debug.Log($"Animation joined {joined.Tween.GetType()} addaed at time: {insertTime}");
 				AddSequence(seq, joined, insertTime);
 			}
 

@@ -49,7 +49,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
 
         public Tween GetTween()
         {
-            return objectToRotate.DOLocalRotate(targetEulersRot, AnimationTime, RotateMode.LocalAxisAdd).SetDelay(Delay).SetEase(Ease);
+            return objectToRotate.DOLocalRotate(targetEulersRot, AnimationTime, RotateMode.Fast).SetDelay(Delay).SetEase(Ease);
         }
 
         public void SetAnimableObject(GameObject gameObject)

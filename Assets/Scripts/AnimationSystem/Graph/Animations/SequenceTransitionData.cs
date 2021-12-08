@@ -9,6 +9,7 @@ namespace AnimationSystem.Graph.Animations
     public class SequenceTransitionData
     {
         public Tween Tween;
+        public float Delay;
         public SequenceAddType SequenceAddType;
         public List<SequenceTransitionData> JoinedSequences = new List<SequenceTransitionData>();
         public List<SequenceTransitionData> AppendedSequences = new List<SequenceTransitionData>();
@@ -17,6 +18,7 @@ namespace AnimationSystem.Graph.Animations
         {
             Tween = tween;
             SequenceAddType = sequenceAddType;
+            Delay = Tween.Delay();
         }
     }
 }

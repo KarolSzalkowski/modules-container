@@ -1,5 +1,6 @@
 namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
 {
+    using AnimationSystem.Graph.Animations.AnimationNodes.Transform;
     using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
@@ -35,7 +36,13 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
 
         public void CreateNode(BaseGraph baseGraph, Vector2 position, ParameterNode goParameter)
         {
-            throw new NotImplementedException();
+            var node = BaseNode.CreateFromType<PathAnimationNode>(position);
+            node.PathAnimation = this;
+            node.expanded = true;
+            baseGraph.AddNode(node);
+            baseGraph.Connect(node.inputPorts[0], goParameter.outputPorts[0]);
+            AssignedNodeGUID = node.GUID;
+            baseGraph.NotifyNodeChanged(node);
         }
 
         public Type GetAnimableType()
