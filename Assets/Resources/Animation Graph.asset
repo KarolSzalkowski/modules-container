@@ -29,6 +29,7 @@ MonoBehaviour:
   - id: 12
   - id: 13
   - id: 14
+  - id: 15
   edges:
   - GUID: fb0e863a-37b2-4859-94cf-be24ab50b5cc
     owner: {fileID: 11400000}
@@ -164,15 +165,15 @@ MonoBehaviour:
       serializedType: GraphProcessor.ExposedParameterView, com.alelievr.NodeGraphProcessor.Editor,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   exposedParameters:
-  - id: 15
   - id: 16
   - id: 17
   - id: 18
+  - id: 19
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -252, y: -198, z: 0}
-  scale: {x: 0.65751624, y: 0.65751624, z: 1}
+  position: {x: -613, y: -863, z: 0}
+  scale: {x: 0.8695652, y: 0.8695652, z: 1}
   <AnimableObjects>k__BackingField: []
   references:
     version: 1
@@ -470,7 +471,7 @@ MonoBehaviour:
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
           <AnimationTime>k__BackingField: 5
-          <Ease>k__BackingField: 1
+          <Ease>k__BackingField: 2
           <AssignedNodeGUID>k__BackingField: 
     0000000D:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
@@ -507,24 +508,36 @@ MonoBehaviour:
         parameterGUID: 035292ff-ed13-4738-a0eb-3e898b61b440
         accessor: 0
     0000000F:
+      type: {class: MaterialFloatAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Rendering, asm: com.orizongroup.animation-system}
+      data:
+        nodeCustomName: 
+        GUID: 79db0107-8c9b-4d7f-9fd1-406860dac9a5
+        computeOrder: 15
+        position:
+          serializedVersion: 2
+          x: 499.53848
+          y: 1445.8473
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        NodeId: 0
+        animableGo: {fileID: 0}
+        ChangeMaterialFloatAnimation:
+          rendererWithMatToChange: {fileID: 0}
+          targetValue: 0
+          propertyName: 
+          <SequenceAddType>k__BackingField: 0
+          <Delay>k__BackingField: 0
+          <AnimationTime>k__BackingField: 0
+          <Ease>k__BackingField: 0
+          <AssignedNodeGUID>k__BackingField: 
+    00000010:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         guid: 5000105d-f591-456b-a3ea-deaee1f3ae63
         name: BoxToScale
-        type: 
-        serializedValue:
-          serializedType: 
-          serializedName: 
-          serializedValue: 
-        input: 1
-        settings:
-          id: 19
-        val: {fileID: 0}
-    00000010:
-      type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
-      data:
-        guid: 6fe46e73-10fc-44e2-8163-8a1c0d00b61d
-        name: BoxToRotate
         type: 
         serializedValue:
           serializedType: 
@@ -537,8 +550,8 @@ MonoBehaviour:
     00000011:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        guid: 5e2c9cd7-f028-449f-aae7-3952002278bc
-        name: Camera
+        guid: 6fe46e73-10fc-44e2-8163-8a1c0d00b61d
+        name: BoxToRotate
         type: 
         serializedValue:
           serializedType: 
@@ -551,8 +564,8 @@ MonoBehaviour:
     00000012:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        guid: 035292ff-ed13-4738-a0eb-3e898b61b440
-        name: LookAtObject
+        guid: 5e2c9cd7-f028-449f-aae7-3952002278bc
+        name: Camera
         type: 
         serializedValue:
           serializedType: 
@@ -563,24 +576,38 @@ MonoBehaviour:
           id: 22
         val: {fileID: 0}
     00000013:
-      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        isHidden: 0
-        expanded: 0
-        guid: 5000105d-f591-456b-a3ea-deaee1f3ae63
+        guid: 035292ff-ed13-4738-a0eb-3e898b61b440
+        name: LookAtObject
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 23
+        val: {fileID: 0}
     00000014:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
-        guid: 6fe46e73-10fc-44e2-8163-8a1c0d00b61d
+        guid: 5000105d-f591-456b-a3ea-deaee1f3ae63
     00000015:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
-        guid: 5e2c9cd7-f028-449f-aae7-3952002278bc
+        guid: 6fe46e73-10fc-44e2-8163-8a1c0d00b61d
     00000016:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 5e2c9cd7-f028-449f-aae7-3952002278bc
+    00000017:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
