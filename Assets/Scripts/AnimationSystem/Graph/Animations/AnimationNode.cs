@@ -38,7 +38,7 @@ namespace AnimationSystem.Graph.Animations
 
 		public virtual SequenceTransitionData GetSequenceDataFromPorts(SequenceTransitionData data)
         {
-			var appendEdges = outputPorts[1].GetEdges();
+			var appendEdges = outputPorts.Find(p => p.fieldName == "outputAppend").GetEdges();
 			if (appendEdges.Count > 0)
 			{
 				foreach (var edge in appendEdges)
@@ -47,7 +47,7 @@ namespace AnimationSystem.Graph.Animations
 					data.AppendedSequences.Add(node.GetSequenceData(SequenceAddType.Append));
 				}
 			}
-			var joinedEdges = outputPorts[0].GetEdges();
+			var joinedEdges = outputPorts.Find(p => p.fieldName == "outputJoin").GetEdges();
 			if (joinedEdges.Count > 0)
 			{
 				foreach (var edge in joinedEdges)
@@ -62,6 +62,7 @@ namespace AnimationSystem.Graph.Animations
 		public abstract ParameterNode GetAssignedParameter();
 
 		public abstract void SetAnimableObject(GameObject gameObject);
+		public abstract void SetOptionalGOs(GameObject[] optionalGOs);
 
 		public abstract Type GetNeededType();
 	}

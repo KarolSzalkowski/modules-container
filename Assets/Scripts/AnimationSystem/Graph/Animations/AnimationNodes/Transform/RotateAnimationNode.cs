@@ -39,5 +39,10 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 		{
 			ChangeRotationAnimation.SetAnimableObject(gameObject);
 		}
-	}
+
+        public override void SetOptionalGOs(GameObject[] optionalGOs)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

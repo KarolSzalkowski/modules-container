@@ -130,40 +130,23 @@ namespace AnimationSystem.Graph.Animations.Creation
             foreach (var node in parameterNodes)
             {
                 var paramNode = node as ParameterNode;
-                var attachedNodes = node.GetOutputNodes();
-                foreach (var att in attachedNodes)
+                var attachedEdges = node.outputPorts[0].GetEdges();
+                foreach (var att in attachedEdges)
                 {
-                    var no = att as AnimationNode;
-
-                    no.SetAnimableObject(AnimableObjects.Find(a => a.GraphParameterName == paramNode.parameter.name).ObjectToAnimate);
+                    var no = att.inputNode as AnimationNode;
+                    if(att.inputPort.fieldName == "animableGo")
+                    {
+                        no.SetAnimableObject(AnimableObjects.Find(a => a.GraphParameterName == paramNode.parameter.name).ObjectToAnimate);
+                    }
+                    else
+                    {
+                        no.SetOptionalGOs(new GameObject[] { AnimableObjects.Find(a => a.GraphParameterName == paramNode.parameter.name).ObjectToAnimate });
+                    }
                 }
             }
-            //for (int i = 0; i < AnimableObjects.Count; i++)
-            //{
-            //    AnimableObjects[i].SetObjectToAnimables();
 
-            //    var parameter = SampleGraph.GetExposedParameter(AnimableObjects[i].GraphParameterName);
-            //    if (parameter == null)
-            //    {
-            //        Debug.LogError($"There is no matching parameter with name: {AnimableObjects[i].GraphParameterName}");
-            //        return false;
-            //    }
-
-
-
-            //    parameter.value = AnimableObjects[i].ObjectToAnimate;
-            //    SampleGraph.NotifyExposedParameterChanged(parameter);
-            //}
             return true;
         }
-
-        //public bool InjectObjectsToNodes()
-        //{
-        //    foreach(var node in SampleGraph.GraphAnimationNodes)
-        //    {
-        //        node.
-        //    }
-        //}
 
         [BoxGroup("Graph"), Button("Match objects with Graph")]
         public bool CheckIfObjectsMatchingGraphParameters()

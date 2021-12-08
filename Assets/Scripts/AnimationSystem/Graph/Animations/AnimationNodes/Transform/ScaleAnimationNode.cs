@@ -43,5 +43,10 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 		{
 			ChangeScaleAnimation.SetAnimableObject(gameObject);
 		}
-	}
+
+        public override void SetOptionalGOs(GameObject[] optionalGOs)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

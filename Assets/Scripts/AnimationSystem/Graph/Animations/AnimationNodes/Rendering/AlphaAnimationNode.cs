@@ -39,5 +39,10 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Rendering
         {
 			ChangeAlphaAnimation.SetAnimableObject(gameObject);
 		}
+
+        public override void SetOptionalGOs(GameObject[] optionalGOs)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

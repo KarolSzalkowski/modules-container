@@ -18,6 +18,11 @@ namespace AnimationSystem.Logic.Animation.Interfaces
         Tween GetTween();
         Type GetAnimableType();
         void CreateNode(BaseGraph baseGraph, Vector2 position, ParameterNode goParameter);
+        /// <summary>
+        /// Method used to inject objects to animation from objects on scene. With this solution we can use objects from scene in ScriptableObjects
+        /// </summary>
+        /// <param name="gameObject">Main game object that will be tweened</param>
+        /// 
         void SetAnimableObject(GameObject gameObject);
     }
 }
