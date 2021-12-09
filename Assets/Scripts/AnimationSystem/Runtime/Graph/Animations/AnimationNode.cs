@@ -20,6 +20,8 @@ namespace AnimationSystem.Graph.Animations
 		public List<SequenceTransitionData> input;
 		[Input(name = "Animable GO")]
 		public GameObject animableGo;
+		[Input(name = "Animation Time")]
+		public float animationTime;
 
 		[Output(name = "Append")]
 		public List<SequenceTransitionData> outputAppend;

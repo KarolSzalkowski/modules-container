@@ -3,7 +3,6 @@ namespace AnimationSystem.Graph.Animations.Creation
     using AnimationSystem.Logic.Animation;
     using GraphProcessor;
     using Sirenix.OdinInspector;
-    using System.Collections;
     using System.Collections.Generic;
     using UnityEditor;
     using UnityEngine;
@@ -17,6 +16,7 @@ namespace AnimationSystem.Graph.Animations.Creation
         [BoxGroup("Graph"), SerializeField]
         public AnimationGraph SampleGraph;
 
+#if UNITY_EDITOR
         [BoxGroup("Graph"), Button("CreateGraph")]
         public void CreateGraph()
         {
@@ -110,9 +110,9 @@ namespace AnimationSystem.Graph.Animations.Creation
                 return;
             }
             Undo.undoRedoPerformed?.Invoke();
-            EditorWindow.GetWindow<ExposedPropertiesGraphWindow>().InitializeGraph(SampleGraph as BaseGraph);
+            EditorWindow.GetWindow<AnimationSystem.Editor.Windows.ExposedPropertiesGraphWindow>().InitializeGraph(SampleGraph as BaseGraph);
         }
-
+#endif
         public bool FillParameters()
         {
             if (SampleGraph == null)

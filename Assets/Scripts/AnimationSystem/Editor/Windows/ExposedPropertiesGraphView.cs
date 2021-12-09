@@ -1,4 +1,4 @@
-namespace AnimationSystem.Graph.Animations.Creation
+namespace AnimationSystem.Editor.Windows
 {
 	using UnityEngine.UIElements;
 	using UnityEditor.Experimental.GraphView;

@@ -13,6 +13,9 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Rendering
 		public ChangeAlphaAnimation ChangeAlphaAnimation;
 		#endregion
 
+		[Input(name = "Target Alpha")]
+		public float targetAlpha;
+
 		public override string name => "Alpha Animation";
 
 		protected override void Process()
@@ -21,6 +24,12 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Rendering
 
 		public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
+			var alphaPort = inputPorts.Find(p => p.fieldName == "targetAlpha").GetEdges();
+			if (alphaPort.Count > 0)
+            {
+				var param = alphaPort[0].outputNode as ParameterNode;
+				ChangeAlphaAnimation.SetTargetAlpha((float)param.parameter.value);
+            }
 			var data = new SequenceTransitionData(ChangeAlphaAnimation.GetTween(), sequenceAddType);
 			return GetSequenceDataFromPorts(data);
 		}

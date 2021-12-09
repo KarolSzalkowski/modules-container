@@ -56,6 +56,10 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
             canvasToChange = gameObject.GetComponent<CanvasGroup>();
         }
 
+        public void SetTargetAlpha(float target)
+        {
+            targetAlpha = target;
+        }
     }
 
 }
