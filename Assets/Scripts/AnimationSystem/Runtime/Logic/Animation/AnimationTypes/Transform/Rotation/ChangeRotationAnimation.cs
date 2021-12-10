@@ -15,12 +15,17 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
         private Transform objectToRotate;
         [BoxGroup("Object Config"), SerializeField, Tooltip("Target Rotation in euler angles")]
         private Vector3 targetEulersRot;
+        [BoxGroup("Object Config"), SerializeField, Tooltip("If TRUE = rotation value is target value. If FALSE - target value is rotation angle")]
+        private bool useToRotation = true;
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public SequenceAddType SequenceAddType { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float Delay { get; private set; }
+
+        [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
@@ -49,12 +54,21 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
 
         public Tween GetTween()
         {
-            return objectToRotate.DOLocalRotate(targetEulersRot, AnimationTime, RotateMode.Fast).SetDelay(Delay).SetEase(Ease);
+            if(!useToRotation)
+                return objectToRotate.DOLocalRotate(targetEulersRot, AnimationTime, RotateMode.Fast).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
+            else
+                return objectToRotate.DOLocalRotate(targetEulersRot, AnimationTime, RotateMode.LocalAxisAdd).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
+
         }
 
         public void SetAnimableObject(GameObject gameObject)
         {
             objectToRotate = gameObject.GetComponent<Transform>();
+        }
+
+        public void SetTargetRotation(Vector3 rot)
+        {
+            targetEulersRot = rot;
         }
     }
 }

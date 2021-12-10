@@ -26,7 +26,6 @@ namespace AnimationSystem.Logic.Animation
 
         private void Start()
         {
-
         }
 
         [BoxGroup("Animation"), Button("PLAY ANIMATION")]

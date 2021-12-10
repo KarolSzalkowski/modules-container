@@ -178,19 +178,11 @@ MonoBehaviour:
     outputFieldName: output
     inputPortIdentifier: 
     outputPortIdentifier: output
-  - GUID: 7148cfae-3e48-4c53-9117-7ca3c22f60ab
+  - GUID: d6cb3ac0-11ea-40b1-9ad1-3eedd51f90cf
     owner: {fileID: 11400000}
     inputNodeGUID: ad6133c0-6b40-466c-92bc-ccbadbe0f8aa
-    outputNodeGUID: 9b707ec6-5214-4606-8455-785a79cc420d
+    outputNodeGUID: 853bff14-742b-40fc-a0f5-0cea41a4e911
     inputFieldName: animableGo
-    outputFieldName: output
-    inputPortIdentifier: 
-    outputPortIdentifier: output
-  - GUID: 6eda6214-4224-498e-a797-940431c52ce5
-    owner: {fileID: 11400000}
-    inputNodeGUID: 0833932a-a47a-499a-936b-ab68e675f1ca
-    outputNodeGUID: ba75e3ce-7c6a-4ed7-845b-7ed792e4c835
-    inputFieldName: targetAlpha
     outputFieldName: output
     inputPortIdentifier: 
     outputPortIdentifier: output
@@ -199,10 +191,10 @@ MonoBehaviour:
   pinnedElements:
   - position:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 266
-      height: 236
+      x: 1
+      y: 3
+      width: 335
+      height: 258
     opened: 1
     editorType:
       serializedType: GraphProcessor.ExposedParameterView, com.alelievr.NodeGraphProcessor.Editor,
@@ -213,11 +205,13 @@ MonoBehaviour:
   - id: 21
   - id: 22
   - id: 23
+  - id: 24
+  - id: 25
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -26.999996, y: 40.999996, z: 0}
-  scale: {x: 0.57175326, y: 0.57175326, z: 1}
+  position: {x: 218, y: 102, z: 0}
+  scale: {x: 0.43232757, y: 0.43232757, z: 1}
   <AnimableObjects>k__BackingField: []
   references:
     version: 1
@@ -229,8 +223,8 @@ MonoBehaviour:
         computeOrder: 0
         position:
           serializedVersion: 2
-          x: -312.57202
-          y: 609
+          x: -136.05566
+          y: 478.00006
           width: 129
           height: 75
         expanded: 0
@@ -244,16 +238,15 @@ MonoBehaviour:
         computeOrder: 2
         position:
           serializedVersion: 2
-          x: -39.57202
-          y: 671
-          width: 356
+          x: 8.944332
+          y: 495
+          width: 295
           height: 519
         expanded: 0
         debug: 0
         nodeLock: 0
         NodeId: 0
         animableGo: {fileID: 0}
-        animationTime: 0
         PathAnimation:
           objectToMove: {fileID: 0}
           movingPath:
@@ -269,7 +262,8 @@ MonoBehaviour:
           pathType: 2
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
-          <AnimationTime>k__BackingField: 4
+          <Loops>k__BackingField: 3
+          <AnimationTime>k__BackingField: 2
           <Ease>k__BackingField: 1
           <AssignedNodeGUID>k__BackingField: 
     00000002:
@@ -280,8 +274,8 @@ MonoBehaviour:
         computeOrder: 1
         position:
           serializedVersion: 2
-          x: -156.57202
-          y: 729
+          x: -108.05563
+          y: 553
           width: 101
           height: 37
         expanded: 0
@@ -297,8 +291,8 @@ MonoBehaviour:
         computeOrder: 3
         position:
           serializedVersion: 2
-          x: 429.00006
-          y: 181.9325
+          x: 429.00003
+          y: 154.24329
           width: 101
           height: 37
         expanded: 0
@@ -314,30 +308,32 @@ MonoBehaviour:
         computeOrder: 4
         position:
           serializedVersion: 2
-          x: 551.4825
-          y: 104.4775
-          width: 100
-          height: 100
+          x: 558
+          y: 72.24327
+          width: 295
+          height: 310
         expanded: 0
         debug: 0
         nodeLock: 0
         NodeId: 0
         animableGo: {fileID: 0}
-        animationTime: 0
         ChangeRotationAnimation:
           objectToRotate: {fileID: 0}
           targetEulersRot: {x: 0, y: 0, z: 180}
+          useToRotation: 1
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 2
+          <Loops>k__BackingField: 0
           <AnimationTime>k__BackingField: 3
           <Ease>k__BackingField: 1
           <AssignedNodeGUID>k__BackingField: 
+        targetEulersRot: {x: 0, y: 0, z: 0}
     00000005:
       type: {class: AlphaAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Rendering, asm: com.orizongroup.animation-system}
       data:
         nodeCustomName: 
         GUID: 0833932a-a47a-499a-936b-ab68e675f1ca
-        computeOrder: 7
+        computeOrder: 6
         position:
           serializedVersion: 2
           x: 557.99994
@@ -349,12 +345,12 @@ MonoBehaviour:
         nodeLock: 0
         NodeId: 0
         animableGo: {fileID: 0}
-        animationTime: 0
         ChangeAlphaAnimation:
           canvasToChange: {fileID: 0}
           targetAlpha: 0.5
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
+          <Loops>k__BackingField: 0
           <AnimationTime>k__BackingField: 2
           <Ease>k__BackingField: 1
           <AssignedNodeGUID>k__BackingField: 
@@ -364,11 +360,11 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 0312fc32-8a75-413c-ba15-30b772cef9d6
-        computeOrder: 6
+        computeOrder: 5
         position:
           serializedVersion: 2
-          x: 428.99994
-          y: 538.49994
+          x: 431
+          y: 551.6106
           width: 101
           height: 37
         expanded: 0
@@ -381,24 +377,24 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: e916fa7c-7216-4b64-bd89-d517f6e7754f
-        computeOrder: 9
+        computeOrder: 8
         position:
           serializedVersion: 2
-          x: 952
-          y: 405.9999
-          width: 356
-          height: 265
+          x: 982.5
+          y: 406
+          width: 295
+          height: 289
         expanded: 0
         debug: 0
         nodeLock: 0
         NodeId: 0
         animableGo: {fileID: 0}
-        animationTime: 0
         ChangeScaleAnimation:
           objectToScale: {fileID: 0}
           targetScale: {x: 2, y: 2, z: 2}
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
+          <Loops>k__BackingField: 0
           <AnimationTime>k__BackingField: 2
           <Ease>k__BackingField: 1
           <AssignedNodeGUID>k__BackingField: 
@@ -407,13 +403,13 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 075d1a59-d234-4143-bf6e-b6bf5e530475
-        computeOrder: 8
+        computeOrder: 7
         position:
           serializedVersion: 2
-          x: 931.2583
-          y: 325.83987
-          width: 100
-          height: 100
+          x: 872.0001
+          y: 491.6
+          width: 101
+          height: 37
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -424,24 +420,24 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 37c215d6-7057-44f4-b4af-5cebd02340f2
-        computeOrder: 11
+        computeOrder: 10
         position:
           serializedVersion: 2
-          x: 1130
-          y: -5.9999914
-          width: 182
-          height: 140
+          x: 983.00006
+          y: 96.243256
+          width: 295
+          height: 286
         expanded: 0
         debug: 0
         nodeLock: 0
         NodeId: 0
         animableGo: {fileID: 0}
-        animationTime: 0
         ChangeScaleAnimation:
           objectToScale: {fileID: 0}
           targetScale: {x: 2, y: 2, z: 2}
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
+          <Loops>k__BackingField: 0
           <AnimationTime>k__BackingField: 2
           <Ease>k__BackingField: 1
           <AssignedNodeGUID>k__BackingField: 
@@ -450,11 +446,11 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: cb998b43-b936-4d4b-a321-d725b4b10bb4
-        computeOrder: 10
+        computeOrder: 9
         position:
           serializedVersion: 2
-          x: 977.4998
-          y: 44.000015
+          x: 835.00006
+          y: 72.24327
           width: 107
           height: 37
         expanded: 0
@@ -467,27 +463,26 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 2f3129c4-75b2-49a4-866f-3a57384dfd90
-        computeOrder: 15
+        computeOrder: 14
         position:
           serializedVersion: 2
-          x: 952
-          y: 759.2391
-          width: 336
-          height: 347
+          x: 983.00006
+          y: 716
+          width: 308
+          height: 349
         expanded: 0
         debug: 0
         nodeLock: 0
         NodeId: 0
         animableGo: {fileID: 0}
-        animationTime: 0
         LookAtAnimation:
           objectToRotate: {fileID: 0}
-          loop: 0
           useObject: 1
           lookAtPosition: {x: 0, y: 0, z: 0}
           goToLookAt: {fileID: 0}
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
+          <Loops>k__BackingField: 0
           <AnimationTime>k__BackingField: 2
           <Ease>k__BackingField: 0
           <AssignedNodeGUID>k__BackingField: 
@@ -497,19 +492,18 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 09044aac-52a4-4d14-91f4-8fde320fa951
-        computeOrder: 14
+        computeOrder: 13
         position:
           serializedVersion: 2
           x: 558
-          y: 758.9999
+          y: 726
           width: 295
-          height: 456
+          height: 330
         expanded: 0
         debug: 0
         nodeLock: 0
         NodeId: 0
         animableGo: {fileID: 0}
-        animationTime: 0
         PathAnimation:
           objectToMove: {fileID: 0}
           movingPath:
@@ -522,6 +516,7 @@ MonoBehaviour:
           pathType: 0
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
+          <Loops>k__BackingField: 0
           <AnimationTime>k__BackingField: 5
           <Ease>k__BackingField: 2
           <AssignedNodeGUID>k__BackingField: 
@@ -530,13 +525,13 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 47567f89-de4c-407f-8b35-65f608bbd27d
-        computeOrder: 13
+        computeOrder: 12
         position:
           serializedVersion: 2
-          x: 430.92325
-          y: 790.026
-          width: 100
-          height: 100
+          x: 431.00003
+          y: 811.00006
+          width: 79
+          height: 37
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -547,13 +542,13 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: c307ba93-bc81-43fb-9095-577b70b45cd9
-        computeOrder: 12
+        computeOrder: 11
         position:
           serializedVersion: 2
-          x: 446.88336
-          y: 901.7468
-          width: 100
-          height: 100
+          x: 447
+          y: 923.00006
+          width: 110
+          height: 37
         expanded: 0
         debug: 0
         nodeLock: 0
@@ -564,25 +559,25 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 79db0107-8c9b-4d7f-9fd1-406860dac9a5
-        computeOrder: 17
+        computeOrder: 16
         position:
           serializedVersion: 2
-          x: 557
-          y: 1284.0417
+          x: 557.00006
+          y: 1065.0715
           width: 344
-          height: 286
+          height: 307
         expanded: 0
         debug: 0
         nodeLock: 0
         NodeId: 0
         animableGo: {fileID: 0}
-        animationTime: 0
         ChangeMaterialFloatAnimation:
           rendererWithMatToChange: {fileID: 0}
           targetValue: 1
           propertyName: _AlphaClipThreshold
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
+          <Loops>k__BackingField: 0
           <AnimationTime>k__BackingField: 3
           <Ease>k__BackingField: 3
           <AssignedNodeGUID>k__BackingField: 
@@ -594,22 +589,22 @@ MonoBehaviour:
         computeOrder: 18
         position:
           serializedVersion: 2
-          x: 952
-          y: 1284
+          x: 983
+          y: 1106.0717
           width: 344
-          height: 286
+          height: 307
         expanded: 0
         debug: 0
         nodeLock: 0
         NodeId: 0
         animableGo: {fileID: 0}
-        animationTime: 0
         ChangeMaterialFloatAnimation:
           rendererWithMatToChange: {fileID: 0}
           targetValue: 0
           propertyName: _AlphaClipThreshold
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
+          <Loops>k__BackingField: 0
           <AnimationTime>k__BackingField: 3
           <Ease>k__BackingField: 3
           <AssignedNodeGUID>k__BackingField: 
@@ -618,11 +613,11 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 9b707ec6-5214-4606-8455-785a79cc420d
-        computeOrder: 16
+        computeOrder: 15
         position:
           serializedVersion: 2
-          x: 431
-          y: 1380.4791
+          x: 430.99997
+          y: 1188.0717
           width: 110
           height: 37
         expanded: 0
@@ -634,18 +629,18 @@ MonoBehaviour:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         nodeCustomName: 
-        GUID: ba75e3ce-7c6a-4ed7-845b-7ed792e4c835
-        computeOrder: 5
+        GUID: 853bff14-742b-40fc-a0f5-0cea41a4e911
+        computeOrder: 17
         position:
           serializedVersion: 2
-          x: 453.6175
-          y: 462.875
-          width: 100
-          height: 100
+          x: 890.0502
+          y: 1234.2003
+          width: 110
+          height: 37
         expanded: 0
         debug: 0
         nodeLock: 0
-        parameterGUID: 2b66c802-19c4-4d5d-9f66-80568f1dbecf
+        parameterGUID: 035292ff-ed13-4738-a0eb-3e898b61b440
         accessor: 0
     00000013:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
@@ -659,7 +654,7 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 24
+          id: 26
         val: {fileID: 0}
     00000014:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
@@ -673,7 +668,7 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 25
+          id: 27
         val: {fileID: 0}
     00000015:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
@@ -687,7 +682,7 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 26
+          id: 28
         val: {fileID: 0}
     00000016:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
@@ -701,13 +696,13 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 27
+          id: 29
         val: {fileID: 0}
     00000017:
       type: {class: FloatParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        guid: 2b66c802-19c4-4d5d-9f66-80568f1dbecf
-        name: New Float
+        guid: 1f30b0af-dede-4c48-a8fa-3526d40c395d
+        name: AlphaValue
         type: 
         serializedValue:
           serializedType: 
@@ -715,38 +710,81 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 28
+          id: 30
         val: 0
     00000018:
-      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      type: {class: FloatParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        isHidden: 0
-        expanded: 0
-        guid: 5000105d-f591-456b-a3ea-deaee1f3ae63
+        guid: 163463b1-6e6d-464e-a28b-347afe7e3ab3
+        name: Sample Float
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 31
+        val: 0
     00000019:
-      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      type: {class: Vector3Parameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        isHidden: 0
-        expanded: 0
-        guid: 6fe46e73-10fc-44e2-8163-8a1c0d00b61d
+        guid: b1c173df-e18a-407c-b300-f73287623d2a
+        name: SampleVect3
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 32
+        val: {x: 0, y: 0, z: 0}
     0000001A:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
-        guid: 5e2c9cd7-f028-449f-aae7-3952002278bc
+        guid: 5000105d-f591-456b-a3ea-deaee1f3ae63
     0000001B:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
-        guid: 035292ff-ed13-4738-a0eb-3e898b61b440
+        guid: 6fe46e73-10fc-44e2-8163-8a1c0d00b61d
     0000001C:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 5e2c9cd7-f028-449f-aae7-3952002278bc
+    0000001D:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 035292ff-ed13-4738-a0eb-3e898b61b440
+    0000001E:
       type: {class: FloatParameter/FloatSettings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
-        expanded: 1
-        guid: 2b66c802-19c4-4d5d-9f66-80568f1dbecf
+        expanded: 0
+        guid: 1f30b0af-dede-4c48-a8fa-3526d40c395d
         mode: 0
         min: 0
         max: 1
+    0000001F:
+      type: {class: FloatParameter/FloatSettings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 163463b1-6e6d-464e-a28b-347afe7e3ab3
+        mode: 0
+        min: 0
+        max: 1
+    00000020:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: b1c173df-e18a-407c-b300-f73287623d2a

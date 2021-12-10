@@ -21,7 +21,10 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float Delay { get; private set; }
-        
+
+        [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
+
         [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
@@ -43,7 +46,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
 
         public Tween GetTween()
         {
-            return objectToScale.DOScale(targetScale, AnimationTime).SetDelay(Delay).SetEase(Ease);
+            return objectToScale.DOScale(targetScale, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
         }
 
         public void CreateNode(BaseGraph baseGraph, Vector2 position, ParameterNode goParameter)

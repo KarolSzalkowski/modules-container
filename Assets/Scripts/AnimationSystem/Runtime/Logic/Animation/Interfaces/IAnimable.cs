@@ -13,6 +13,7 @@ namespace AnimationSystem.Logic.Animation.Interfaces
         string AssignedNodeGUID { get; }
         float AnimationTime { get; }
         float Delay { get; }
+        int Loops { get; }
         Ease Ease { get; }
         SequenceAddType SequenceAddType { get; }
         Tween GetTween();

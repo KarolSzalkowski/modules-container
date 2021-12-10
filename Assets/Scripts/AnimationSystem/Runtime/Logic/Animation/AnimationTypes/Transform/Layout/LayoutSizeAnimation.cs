@@ -23,6 +23,9 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Layout
         public float Delay { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
+
+        [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]

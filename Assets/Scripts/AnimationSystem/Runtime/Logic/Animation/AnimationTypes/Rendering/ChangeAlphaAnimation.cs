@@ -23,6 +23,9 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
         public float Delay { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
+
+        [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
@@ -48,7 +51,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
 
         public Tween GetTween()
         {
-            return canvasToChange.DOFade(targetAlpha, AnimationTime).SetDelay(Delay).SetEase(Ease);
+            return canvasToChange.DOFade(targetAlpha, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
         }
 
         public void SetAnimableObject(GameObject gameObject)

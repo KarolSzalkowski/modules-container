@@ -25,5 +25,32 @@ namespace AnimationSystem.Graph.Animations.Creation
             }
             return animationNodes;
         }
+
+        public List<T> GetNodesOfType<T>() where T : BaseNode
+        {
+            List<T> typeNodes = new List<T>();
+            foreach (var baseNode in nodes)
+            {
+                if (baseNode.GetType() == typeof(T) )
+                {
+                    typeNodes.Add(baseNode as T);
+                }
+            }
+            return typeNodes;
+        }
+
+        public List<ParameterNode> GetParameterNodesOfType<T>()
+        {
+            List<ParameterNode> typeNodes = new List<ParameterNode>();
+            var paramNodes = GetNodesOfType<ParameterNode>();
+            foreach (var paramNode in paramNodes)
+            {
+                if (paramNode.parameter.value.GetType() == typeof(T))
+                {
+                    typeNodes.Add(paramNode);
+                }
+            }
+            return typeNodes;
+        }
     }
 }

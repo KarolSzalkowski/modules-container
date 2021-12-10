@@ -13,6 +13,9 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 		public ChangeRotationAnimation ChangeRotationAnimation;
 		#endregion
 
+		[Input(name = "Target Rotation"), ShowAsDrawer]
+		public Vector3 targetEulersRot;
+
 		public override string name => "Rotate Animation";
 
 		protected override void Process()
@@ -21,6 +24,12 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
 		public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
+			var rotPort = inputPorts.Find(p => p.fieldName == "targetEulersRot").GetEdges();
+			if (rotPort.Count > 0)
+			{
+				var param = rotPort[0].outputNode as ParameterNode;
+				ChangeRotationAnimation.SetTargetRotation((Vector3)param.parameter.value);
+			}
 			var data = new SequenceTransitionData(ChangeRotationAnimation.GetTween(), sequenceAddType);
 			return GetSequenceDataFromPorts(data);
 		}
@@ -32,7 +41,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
 		public override ParameterNode GetAssignedParameter()
 		{
-			return inputPorts[0].GetEdges()[0].outputNode as ParameterNode;
+			return inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0].outputNode as ParameterNode;
 		}
 
 		public override void SetAnimableObject(GameObject gameObject)

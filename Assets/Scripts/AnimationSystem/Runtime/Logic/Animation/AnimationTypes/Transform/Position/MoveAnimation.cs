@@ -37,7 +37,10 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float Delay { get; private set; }
-        
+
+        [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
+
         [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
@@ -72,13 +75,13 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
                 objectToMove.anchorMax = initialAnchorMax;
                 
                 Sequence sequence = DOTween.Sequence();
-                sequence.Join(objectToMove.DOAnchorMin(destinationAnchorMin, AnimationTime).SetDelay(Delay).SetEase(Ease));
-                sequence.Join(objectToMove.DOAnchorMax(destinationAnchorMax, AnimationTime).SetDelay(Delay).SetEase(Ease));
+                sequence.Join(objectToMove.DOAnchorMin(destinationAnchorMin, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops));
+                sequence.Join(objectToMove.DOAnchorMax(destinationAnchorMax, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops));
                 return sequence;
             }
             else
             {
-                return objectToMove.DOAnchorPos(targetPosition, AnimationTime).SetDelay(Delay).SetEase(Ease);
+                return objectToMove.DOAnchorPos(targetPosition, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
 
             }
         }

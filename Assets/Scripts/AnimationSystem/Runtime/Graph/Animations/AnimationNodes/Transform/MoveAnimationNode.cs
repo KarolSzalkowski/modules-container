@@ -32,7 +32,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
 		public override ParameterNode GetAssignedParameter()
 		{
-			return inputPorts[0].GetEdges()[0].outputNode as ParameterNode;
+			return inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0].outputNode as ParameterNode;
 		}
 
 		public override void SetAnimableObject(GameObject gameObject)

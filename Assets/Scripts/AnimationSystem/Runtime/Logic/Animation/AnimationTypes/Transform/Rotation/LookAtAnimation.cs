@@ -14,8 +14,6 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
         [BoxGroup("Object Config"), SerializeField, Tooltip("Object you want to change rotation")]
         private Transform objectToRotate;
         [BoxGroup("Object Config"), SerializeField, Tooltip("Defines rotation source. If TRUE animation will use goToLookAt as source, if FALSE - lookAtPosition")]
-        private bool loop;
-        [BoxGroup("Object Config"), SerializeField, Tooltip("Defines rotation source. If TRUE animation will use goToLookAt as source, if FALSE - lookAtPosition")]
         private bool useObject;
         [BoxGroup("Object Config"), SerializeField, Tooltip("Position that objectToRotate is going to look at")]
         private Vector3 lookAtPosition;
@@ -27,6 +25,9 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float Delay { get; private set; }
+
+        [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
@@ -55,7 +56,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
 
         public Tween GetTween()
         {
-            var tweenParams = new TweenParams().SetDelay(Delay).SetEase(Ease) ;
+            var tweenParams = new TweenParams().SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
 
             if (useObject)
             {

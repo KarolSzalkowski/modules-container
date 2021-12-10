@@ -21,7 +21,10 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeColor
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public float Delay { get; private set; }
-        
+
+        [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
+
         [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
@@ -43,7 +46,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeColor
 
         public Tween GetTween()
         {
-            return imageToChange.DOColor(targetColor, AnimationTime).SetDelay(Delay).SetEase(Ease);
+            return imageToChange.DOColor(targetColor, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
         }
 
         public void SetAnimableObject(GameObject gameObject)

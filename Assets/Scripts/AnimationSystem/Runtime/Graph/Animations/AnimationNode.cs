@@ -10,7 +10,7 @@ namespace AnimationSystem.Graph.Animations
     using AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha;
     using System;
 
-    [System.Serializable, NodeMenuItem("Custom/AnimationNode")]
+    [System.Serializable]
 	public abstract class AnimationNode : BaseNode
 	{
 		public int NodeId;
@@ -20,8 +20,6 @@ namespace AnimationSystem.Graph.Animations
 		public List<SequenceTransitionData> input;
 		[Input(name = "Animable GO")]
 		public GameObject animableGo;
-		[Input(name = "Animation Time")]
-		public float animationTime;
 
 		[Output(name = "Append")]
 		public List<SequenceTransitionData> outputAppend;

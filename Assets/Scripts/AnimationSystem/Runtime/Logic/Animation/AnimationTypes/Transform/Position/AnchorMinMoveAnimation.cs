@@ -23,6 +23,9 @@
         public float Delay { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
+
+        [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; } = .5f;
 
         [field: SerializeField, BoxGroup("Main animation config")]
@@ -44,7 +47,7 @@
         public Tween GetTween()
         {
             var anchorTween = targetRect.DOAnchorMin(new Vector2(targetAnchor.x, targetAnchor.y), 
-                    AnimationTime).SetEase(Ease).SetDelay(Delay);
+                    AnimationTime).SetEase(Ease).SetDelay(Delay).SetLoops(Loops);
                 anchorTween.onUpdate += () =>
             {
                 targetRect.offsetMax = Vector2.zero;

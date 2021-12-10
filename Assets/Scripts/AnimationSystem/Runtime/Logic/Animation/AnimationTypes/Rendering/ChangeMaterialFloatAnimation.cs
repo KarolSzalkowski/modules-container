@@ -25,6 +25,9 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering
         public float Delay { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
+
+        [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
@@ -51,7 +54,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering
 
         public Tween GetTween()
         {
-            var tweenParams = new TweenParams().SetDelay(Delay).SetEase(Ease);
+            var tweenParams = new TweenParams().SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
             return rendererWithMatToChange.material.DOFloat(targetValue, propertyName, AnimationTime).SetAs(tweenParams);
         }
 

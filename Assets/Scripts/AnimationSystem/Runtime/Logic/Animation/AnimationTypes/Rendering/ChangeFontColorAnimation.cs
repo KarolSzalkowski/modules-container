@@ -24,6 +24,9 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.FontColor
         public float Delay { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
+
+        [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
@@ -44,7 +47,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.FontColor
 
         public Tween GetTween()
         {
-            return textToManage.DOColor(targetColor, AnimationTime).SetDelay(Delay).SetEase(Ease);
+            return textToManage.DOColor(targetColor, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
         }
 
         public void SetAnimableObject(GameObject gameObject)

@@ -26,6 +26,9 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
         public float Delay { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
+        public int Loops { get; private set; }
+
+        [field: SerializeField, BoxGroup("Main animation config")]
         public float AnimationTime { get; private set; }
 
         [field: SerializeField, BoxGroup("Main animation config")]
@@ -52,7 +55,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
 
         public Tween GetTween()
         {
-            return objectToMove.DOLocalPath(movingPath, AnimationTime, pathType).SetDelay(Delay).SetEase(Ease);
+            return objectToMove.DOLocalPath(movingPath, AnimationTime, pathType).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
         }
 
         public void SetAnimableObject(GameObject gameObject)

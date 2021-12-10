@@ -1,5 +1,6 @@
 namespace AnimationSystem.Graph.Animations.Creation
 {
+    using AnimationSystem.Graph.Animations.Creation.ParameterTypes;
     using AnimationSystem.Logic.Animation;
     using GraphProcessor;
     using Sirenix.OdinInspector;
@@ -10,11 +11,18 @@ namespace AnimationSystem.Graph.Animations.Creation
     [System.Serializable]
     public class AnimationGraphCreator 
     {
+
+        #region Animation Objects
         [BoxGroup("Animables"), SerializeField]
         public List<AnimableObject> AnimableObjects;
 
+        [BoxGroup("Parameters"), SerializeField]
+        public ParametersContainer ParametersContainer;
+
         [BoxGroup("Graph"), SerializeField]
         public AnimationGraph SampleGraph;
+        #endregion
+
 
 #if UNITY_EDITOR
         [BoxGroup("Graph"), Button("CreateGraph")]
@@ -32,9 +40,9 @@ namespace AnimationSystem.Graph.Animations.Creation
                 SampleGraph.AddNode(startNode);
             }
 
+
             if (UpdateGraph())
             {
-
                 EditorUtility.SetDirty(SampleGraph);
                 AssetDatabase.SaveAssetIfDirty(SampleGraph);
 
@@ -59,9 +67,9 @@ namespace AnimationSystem.Graph.Animations.Creation
                     return false;
                 }
                 var parameterGuid = "";
-                if (SampleGraph.GetExposedParameter(AnimableObjects[i].ObjectToAnimate.name) != null)
+                if (SampleGraph.GetExposedParameter(AnimableObjects[i].GraphParameterName) != null)
                 {
-                    parameterGuid = SampleGraph.GetExposedParameter(AnimableObjects[i].ObjectToAnimate.name).guid;
+                    parameterGuid = SampleGraph.GetExposedParameter(AnimableObjects[i].GraphParameterName).guid;
                 }
                 else
                 {
@@ -101,6 +109,44 @@ namespace AnimationSystem.Graph.Animations.Creation
             return true;
         }
 
+        [Button("Create Parameters")]
+        public void CreateParams()
+        {
+            CreateParameters<FloatParameterData, float, FloatParameter>(ParametersContainer.FloatParameterDatas);
+            CreateParameters<Vector3ParameterData, Vector3, Vector3Parameter>(ParametersContainer.Vector3ParameterDatas);
+        }
+
+        public bool CreateParameters<T, U, W>(List<T> parameters) where T : BaseParameterData<U, W> where W : ExposedParameter 
+        {
+            if (SampleGraph == null)
+            {
+                Debug.LogError("Create empty Animation Graph and assign it to SampleGraph");
+                return false;
+            }
+            for(int i = 0; i < parameters.Count; i++)
+            {
+                if(parameters[i].ParameterName == "")
+                {
+                    Debug.LogError($"Empty parameter name on index {i}. Fix it and try again");
+                    return false;
+                }
+                var parameterGuid = "";
+                if (SampleGraph.GetExposedParameter(parameters[i].ParameterName) != null)
+                {
+                    parameterGuid = SampleGraph.GetExposedParameter(parameters[i].ParameterName).guid;
+                }
+                else
+                {
+                    var parameterName = parameters[i].ParameterName;
+                    parameterGuid = SampleGraph.AddExposedParameter(parameterName, typeof(W), parameters[i].ParameterValue);
+                    EditorUtility.SetDirty(SampleGraph);
+                    AssetDatabase.SaveAssetIfDirty(SampleGraph);
+                }
+            }
+            return true;
+        }
+
+
         [BoxGroup("Graph"), Button("Show Graph")]
         public void ShowGraph()
         {
@@ -120,17 +166,16 @@ namespace AnimationSystem.Graph.Animations.Creation
                 Debug.LogError("Create empty Animation Graph and assign it to SampleGraph");
                 return false;
             }
-
-            if (AnimableObjects.Count < SampleGraph.exposedParameters.Count)
+            var animableParameters = SampleGraph.exposedParameters.FindAll(p => p.value.GetType() == typeof(GameObject));
+            if (AnimableObjects.Count < animableParameters.Count)
             {
-                Debug.LogError($"MISSING OBJECTS! GRAPH NEED {SampleGraph.exposedParameters.Count} ANIMABLE OBJECTS");
+                Debug.LogError($"MISSING OBJECTS! GRAPH NEED {animableParameters.Count} ANIMABLE OBJECTS");
                 return false;
             }
-            var parameterNodes = SampleGraph.nodes.FindAll(n => n.GetType() == typeof(ParameterNode));
-            foreach (var node in parameterNodes)
+            var goNodes = SampleGraph.GetParameterNodesOfType<GameObject>();
+            foreach (var paramNode in goNodes)
             {
-                var paramNode = node as ParameterNode;
-                var attachedEdges = node.outputPorts[0].GetEdges();
+                var attachedEdges = paramNode.outputPorts[0].GetEdges();
                 foreach (var att in attachedEdges)
                 {
                     var no = att.inputNode as AnimationNode;
@@ -156,26 +201,29 @@ namespace AnimationSystem.Graph.Animations.Creation
                 Debug.LogError("Create empty Animation Graph and assign it to SampleGraph");
                 return false;
             }
-            for (int i = 0; i < SampleGraph.exposedParameters.Count; i++)
+
+            var goNodes = SampleGraph.GetParameterNodesOfType<GameObject>();
+
+            for (int i = 0; i < goNodes.Count; i++)
             {
-                var matched = AnimableObjects.Find(a => a.GraphParameterName == SampleGraph.exposedParameters[i].name);
+                var matched = AnimableObjects.Find(a => a.GraphParameterName == goNodes[i].name);
                 if (matched == null)
                 {
-                    AnimableObjects.Add(new AnimableObject() { GraphParameterName = SampleGraph.exposedParameters[i].name });
-                    Debug.LogWarning($"Add Object to {SampleGraph.exposedParameters[i].name} animable and match graph again");
+                    AnimableObjects.Add(new AnimableObject() { GraphParameterName = goNodes[i].name });
+                    Debug.LogWarning($"Add Object to {goNodes[i].name} animable and match graph again");
                 }
                 else
                 {
                     if (matched.ObjectToAnimate == null)
                     {
-                        Debug.LogError($"Add Object to {SampleGraph.exposedParameters[i].name} animable and match graph again");
+                        Debug.LogError($"Add Object to {goNodes[i].name} animable and match graph again");
                         continue;
                     }
                     if (matched.ObjectAnimator == null)
                     {
                         matched.GenerateAnimator();
                     }
-                    var nodesAttachedTo = GetNodesConnectedTo(SampleGraph.exposedParameters[i].name);
+                    var nodesAttachedTo = GetNodesConnectedTo(goNodes[i].name);
                     foreach (var node in nodesAttachedTo)
                     {
                         matched.AddComponentWithType(node.GetNeededType());
