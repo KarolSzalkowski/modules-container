@@ -51,7 +51,6 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Rendering
 
         public override void SetOptionalGOs(GameObject[] optionalGOs)
         {
-            throw new NotImplementedException();
         }
     }
 }

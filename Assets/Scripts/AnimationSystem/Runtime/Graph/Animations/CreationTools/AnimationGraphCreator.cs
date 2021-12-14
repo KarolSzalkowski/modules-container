@@ -26,7 +26,12 @@ namespace AnimationSystem.Graph.Animations.Creation
 
 
 #if UNITY_EDITOR
-        [BoxGroup("Graph"), Button("CreateGraph")]
+
+        /// <summary>
+        /// Creates animables and parameters using data from animation runner, then shows created graph.
+        /// Note that SampleGraph need to be filled with empty animation graph.
+        /// </summary>
+        [BoxGroup("Graph Control"), Button("CreateGraph")]
         public void CreateGraph()
         {
             if (SampleGraph == null)
@@ -51,8 +56,13 @@ namespace AnimationSystem.Graph.Animations.Creation
             }
 
         }
-
-        [BoxGroup("Graph"), Button("Update Graph")]
+        
+        /// <summary>
+        /// Updates current oppened graph. Creates graph parameters based on animation runner parameters if they are not existing. 
+        /// If AnimationRunner has defined animations in Animables - create nodes with given anim type with attached object nodes.
+        /// </summary>
+        /// <returns>TRUE if Graph updated correctly. False if updating failed - check logs.</returns>
+        [BoxGroup("Graph Control"), Button("Update Graph")]
         public bool UpdateGraph()
         {
             if (SampleGraph == null)
@@ -106,11 +116,17 @@ namespace AnimationSystem.Graph.Animations.Creation
                 EditorUtility.SetDirty(SampleGraph);
                 AssetDatabase.SaveAssetIfDirty(SampleGraph);
             }
+            if (!CreateParams())
+                return false;
+            
             Undo.undoRedoPerformed?.Invoke();
             return true;
         }
 
-        [Button("Graph")]
+        /// <summary>
+        /// Creates Parameters in graph based on params in AnimationRunner
+        /// </summary>
+        /// <returns></returns>
         public bool CreateParams()
         {
             if (!CreateParameters<FloatParameterData, float, FloatParameter>(ParametersContainer.FloatParameterDatas))
@@ -151,7 +167,10 @@ namespace AnimationSystem.Graph.Animations.Creation
         }
 
 
-        [BoxGroup("Graph"), Button("Show Graph")]
+        /// <summary>
+        /// Opens current attached Graph if its not null.
+        /// </summary>
+        [BoxGroup("Graph Control"), Button("Show Graph")]
         public void ShowGraph()
         {
             if (SampleGraph == null)
@@ -163,6 +182,10 @@ namespace AnimationSystem.Graph.Animations.Creation
             EditorWindow.GetWindow<AnimationSystem.Editor.Windows.ExposedPropertiesGraphWindow>().InitializeGraph(SampleGraph as BaseGraph);
         }
 
+        /// <summary>
+        /// Checks if Animation Runner has all needed Animables and Paramaters required by Graph
+        /// </summary>
+        /// <returns>TRUE if has all parameters, FALSE if doesn't have parameters or parameters got empty values.</returns>
         [BoxGroup("Objects To Graph Match"), Button("Check if object contain graph parameters")]
         public bool CheckIfObjectsMatchingGraphParameters()
         {
@@ -208,14 +231,17 @@ namespace AnimationSystem.Graph.Animations.Creation
             return true;
         }
 
+        /// <summary>
+        /// Cheks if Runner has all needed Parameters with given Type.
+        /// </summary>
+        /// <typeparam name="T">Input value type</typeparam>
+        /// <typeparam name="U">Parameter Type - inherits from ExposedParameter</typeparam>
+        /// <typeparam name="W">Parameter Data Model - inherits from BaseParameterData</typeparam>
+        /// <param name="paramsInObject">Parameters list to check and fill</param>
+        /// <returns>true if fill</returns>
         public bool CheckParametersWithType<T, U, W>(ref List<W> paramsInObject) where W : BaseParameterData<T, U> where U : ExposedParameter
         {
             var paramNodes = SampleGraph.GetParametersOfType<T, U>();
-
-            foreach(var n in paramNodes)
-            {
-                Debug.Log($"Param name: {n.name} with type {n.value.GetType()}");
-            }
 
             for (int i = 0; i < paramNodes.Count; i++)
             {
@@ -230,6 +256,10 @@ namespace AnimationSystem.Graph.Animations.Creation
         }
 
 #endif
+        /// <summary>
+        /// Fills nodes values in animation graph.
+        /// </summary>
+        /// <returns>TRUE if values are filled correctly, FALSE if got an error - Check logs</returns>
         public bool FillParameters()
         {
             FillAnimationParameters();
@@ -266,6 +296,9 @@ namespace AnimationSystem.Graph.Animations.Creation
             return true;
         }
 
+        /// <summary>
+        /// Filling parameters values in Animation Graph based on values from AnimtationRunner
+        /// </summary>
         private void FillAnimationParameters()
         {
             var vect3params = SampleGraph.GetParametersOfType<Vector3, Vector3Parameter>();
@@ -276,6 +309,11 @@ namespace AnimationSystem.Graph.Animations.Creation
             }
         }
 
+        /// <summary>
+        /// Gets connected nodes to node with <paramref name="parameterNode"/>
+        /// </summary>
+        /// <param name="parameterNode">Name of the node</param>
+        /// <returns>Connected nodes</returns>
         public List<AnimationNode> GetNodesConnectedTo(string parameterNode)
         {
             var animNodes = SampleGraph.GraphAnimationNodes;
