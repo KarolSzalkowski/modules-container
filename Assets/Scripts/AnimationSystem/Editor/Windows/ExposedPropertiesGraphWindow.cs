@@ -1,12 +1,12 @@
 ﻿namespace AnimationSystem.Editor.Windows
 {
-	using System.Collections;
-	using System.Collections.Generic;
 	using UnityEngine;
 	using UnityEditor;
 	using GraphProcessor;
+    using AnimationSystem.Editor.Windows.Views;
+    using Assets.Scripts.AnimationSystem.Editor.Windows.Toolbar;
 
-	public class ExposedPropertiesGraphWindow : BaseGraphWindow
+    public class ExposedPropertiesGraphWindow : BaseGraphWindow
 	{
 		BaseGraph tmpGraph;
 
@@ -33,17 +33,21 @@
 
 		protected override void InitializeWindow(BaseGraph graph)
 		{
-			titleContent = new GUIContent("Properties Graph");
+			titleContent = new GUIContent("Animation Graph");
 
 			if (graphView == null)
-				graphView = new ExposedPropertiesGraphView(this);
-
+            {
+				graphView = new BaseGraphView(this);
+				graphView.Add(new AnimationGraphToolbarView(graphView));
+			}
 			rootView.Add(graphView);
 		}
 
 		protected override void InitializeGraphView(BaseGraphView view)
 		{
-			view.OpenPinned<ExposedParameterView>();
+			view.OpenPinned<FloatParametersView>();
+			view.OpenPinned<Vector3ParametersView>();
+			view.OpenPinned<GameObjectParametersView>();
 		}
 	}
 }
