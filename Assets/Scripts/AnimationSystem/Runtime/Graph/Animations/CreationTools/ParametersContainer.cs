@@ -9,7 +9,5 @@ namespace AnimationSystem.Graph.Animations.Creation
     {
         public List<Vector3ParameterData> Vector3ParameterDatas;
         public List<FloatParameterData> FloatParameterDatas;
-
-
     }
 }

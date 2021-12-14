@@ -204,7 +204,7 @@ MonoBehaviour:
       y: 21
       width: 220
       height: 262
-    opened: 0
+    opened: 1
     editorType:
       serializedType: AnimationSystem.Editor.Windows.Views.FloatParametersView, com.orizongroup.animation-system.Editor,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -214,7 +214,7 @@ MonoBehaviour:
       y: 20
       width: 220
       height: 263
-    opened: 0
+    opened: 1
     editorType:
       serializedType: AnimationSystem.Editor.Windows.Views.Vector3ParametersView,
         com.orizongroup.animation-system.Editor, Version=0.0.0.0, Culture=neutral,
@@ -225,7 +225,7 @@ MonoBehaviour:
       y: 20
       width: 220
       height: 260
-    opened: 0
+    opened: 1
     editorType:
       serializedType: AnimationSystem.Editor.Windows.Views.GameObjectParametersView,
         com.orizongroup.animation-system.Editor, Version=0.0.0.0, Culture=neutral,
@@ -241,8 +241,8 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -176, y: 58, z: 0}
-  scale: {x: 1, y: 1, z: 1}
+  position: {x: 212, y: 226, z: 0}
+  scale: {x: 0.57175326, y: 0.57175326, z: 1}
   <AnimableObjects>k__BackingField: []
   references:
     version: 1
@@ -300,7 +300,7 @@ MonoBehaviour:
     00000002:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        nodeCustomName: 
+        nodeCustomName: BoxToScale
         GUID: b849a72f-f2c2-4a53-a2f1-3ff4c20e53ca
         computeOrder: 1
         position:
@@ -317,7 +317,7 @@ MonoBehaviour:
     00000003:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        nodeCustomName: 
+        nodeCustomName: BoxToScale
         GUID: b2805d27-ca8c-4532-8069-9febc0933e7d
         computeOrder: 3
         position:
@@ -350,7 +350,7 @@ MonoBehaviour:
         animableGo: {fileID: 0}
         ChangeRotationAnimation:
           objectToRotate: {fileID: 0}
-          targetEulersRot: {x: 0, y: 0, z: 0}
+          targetEulersRot: {x: 0, y: 180, z: 0}
           useToRotation: 1
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 2
@@ -358,7 +358,7 @@ MonoBehaviour:
           <AnimationTime>k__BackingField: 3
           <Ease>k__BackingField: 1
           <AssignedNodeGUID>k__BackingField: 
-        targetEulersRot: {x: 0, y: 0, z: 0}
+        targetEulersRot: {x: 0, y: 180, z: 0}
     00000005:
       type: {class: AlphaAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Rendering, asm: com.orizongroup.animation-system}
       data:
@@ -389,7 +389,7 @@ MonoBehaviour:
     00000006:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        nodeCustomName: 
+        nodeCustomName: BoxToScale
         GUID: 0312fc32-8a75-413c-ba15-30b772cef9d6
         computeOrder: 6
         position:
@@ -432,7 +432,7 @@ MonoBehaviour:
     00000008:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        nodeCustomName: 
+        nodeCustomName: BoxToScale
         GUID: 075d1a59-d234-4143-bf6e-b6bf5e530475
         computeOrder: 8
         position:
@@ -475,7 +475,7 @@ MonoBehaviour:
     0000000A:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        nodeCustomName: 
+        nodeCustomName: BoxToRotate
         GUID: cb998b43-b936-4d4b-a321-d725b4b10bb4
         computeOrder: 10
         position:
@@ -554,7 +554,7 @@ MonoBehaviour:
     0000000D:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        nodeCustomName: 
+        nodeCustomName: Camera
         GUID: 47567f89-de4c-407f-8b35-65f608bbd27d
         computeOrder: 13
         position:
@@ -571,7 +571,7 @@ MonoBehaviour:
     0000000E:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        nodeCustomName: 
+        nodeCustomName: LookAtObject
         GUID: c307ba93-bc81-43fb-9095-577b70b45cd9
         computeOrder: 12
         position:
@@ -642,7 +642,7 @@ MonoBehaviour:
     00000011:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        nodeCustomName: 
+        nodeCustomName: LookAtObject
         GUID: 9b707ec6-5214-4606-8455-785a79cc420d
         computeOrder: 16
         position:
@@ -659,7 +659,7 @@ MonoBehaviour:
     00000012:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        nodeCustomName: 
+        nodeCustomName: LookAtObject
         GUID: 853bff14-742b-40fc-a0f5-0cea41a4e911
         computeOrder: 18
         position:
@@ -681,8 +681,8 @@ MonoBehaviour:
         computeOrder: 4
         position:
           serializedVersion: 2
-          x: 413
-          y: 231
+          x: 431.00006
+          y: 191.00003
           width: 108
           height: 37
         expanded: 0
@@ -747,34 +747,6 @@ MonoBehaviour:
           id: 30
         val: {fileID: 0}
     00000018:
-      type: {class: FloatParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
-      data:
-        guid: 1f30b0af-dede-4c48-a8fa-3526d40c395d
-        name: AlphaValue
-        type: 
-        serializedValue:
-          serializedType: 
-          serializedName: 
-          serializedValue: 
-        input: 1
-        settings:
-          id: 31
-        val: 0
-    00000019:
-      type: {class: FloatParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
-      data:
-        guid: 163463b1-6e6d-464e-a28b-347afe7e3ab3
-        name: Sample Float
-        type: 
-        serializedValue:
-          serializedType: 
-          serializedName: 
-          serializedValue: 
-        input: 1
-        settings:
-          id: 32
-        val: 0
-    0000001A:
       type: {class: Vector3Parameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         guid: b1c173df-e18a-407c-b300-f73287623d2a
@@ -786,8 +758,36 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
+          id: 31
+        val: {x: 0, y: 180, z: 0}
+    00000019:
+      type: {class: FloatParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        guid: adc1c394-d48b-486c-a2a7-437b28c67c11
+        name: SamplFloat
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 32
+        val: 0
+    0000001A:
+      type: {class: FloatParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        guid: 8ffd402d-f7f9-4150-a742-d64002ac74e1
+        name: New Float
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
           id: 33
-        val: {x: 0, y: 0, z: 0}
+        val: 0
     0000001B:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
@@ -813,26 +813,26 @@ MonoBehaviour:
         expanded: 0
         guid: 035292ff-ed13-4738-a0eb-3e898b61b440
     0000001F:
-      type: {class: FloatParameter/FloatSettings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
-      data:
-        isHidden: 0
-        expanded: 0
-        guid: 1f30b0af-dede-4c48-a8fa-3526d40c395d
-        mode: 0
-        min: 0
-        max: 1
-    00000020:
-      type: {class: FloatParameter/FloatSettings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
-      data:
-        isHidden: 0
-        expanded: 0
-        guid: 163463b1-6e6d-464e-a28b-347afe7e3ab3
-        mode: 0
-        min: 0
-        max: 1
-    00000021:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
         guid: b1c173df-e18a-407c-b300-f73287623d2a
+    00000020:
+      type: {class: FloatParameter/FloatSettings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: adc1c394-d48b-486c-a2a7-437b28c67c11
+        mode: 0
+        min: 0
+        max: 1
+    00000021:
+      type: {class: FloatParameter/FloatSettings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 8ffd402d-f7f9-4150-a742-d64002ac74e1
+        mode: 0
+        min: 0
+        max: 1
