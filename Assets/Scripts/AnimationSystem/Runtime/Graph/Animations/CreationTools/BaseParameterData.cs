@@ -12,5 +12,10 @@ namespace AnimationSystem.Graph.Animations.Creation
         public T ParameterValue;
         [HideInInspector]
         public U ExposedParameterType;
+
+        public BaseParameterData(string name)
+        {
+            ParameterName = name;
+        }
     }
 }

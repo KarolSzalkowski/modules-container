@@ -52,5 +52,18 @@ namespace AnimationSystem.Graph.Animations.Creation
             }
             return typeNodes;
         }
+
+        public List<T> GetParametersOfType<T>() where T : ExposedParameter
+        {
+            List<T> list = new List<T>();
+            foreach(var val in exposedParameters)
+            {
+                if (val.GetType() == typeof(T))
+                {
+                    list.Add(val as T);
+                }
+            }
+            return list;
+        }
     }
 }

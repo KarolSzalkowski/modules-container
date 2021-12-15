@@ -6,6 +6,6 @@ namespace AnimationSystem.Graph.Animations.Creation.ParameterTypes
     [System.Serializable]
     public class Vector3ParameterData : BaseParameterData<Vector3, Vector3Parameter>
     {
-
+        public Vector3ParameterData(string name) : base(name) { }
     }
 }
