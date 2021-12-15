@@ -85,8 +85,8 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 343, y: 361, z: 0}
-  scale: {x: 0.8695652, y: 0.8695652, z: 1}
+  position: {x: 293, y: 406, z: 0}
+  scale: {x: 0.65751624, y: 0.65751624, z: 1}
   <AnimableObjects>k__BackingField: []
   references:
     version: 1

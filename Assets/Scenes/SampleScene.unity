@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 355331145}
   - component: {fileID: 355331144}
   m_Layer: 0
-  m_Name: RotationCube (2)
+  m_Name: SampleCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 612314316}
   - component: {fileID: 612314315}
   m_Layer: 0
-  m_Name: RotationCube (4)
+  m_Name: SampleCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1010,7 +1010,7 @@ GameObject:
   - component: {fileID: 958956195}
   - component: {fileID: 958956194}
   m_Layer: 0
-  m_Name: RotationCube (1)
+  m_Name: SampleCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1340,7 +1340,7 @@ GameObject:
   - component: {fileID: 1006271651}
   - component: {fileID: 1006271650}
   m_Layer: 0
-  m_Name: RotationCube
+  m_Name: SampleCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1810,7 +1810,7 @@ GameObject:
   - component: {fileID: 1720688762}
   - component: {fileID: 1720688761}
   m_Layer: 0
-  m_Name: RotationCube (3)
+  m_Name: SampleCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
