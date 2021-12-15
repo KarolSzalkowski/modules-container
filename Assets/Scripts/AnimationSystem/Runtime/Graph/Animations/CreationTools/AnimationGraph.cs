@@ -53,14 +53,14 @@ namespace AnimationSystem.Graph.Animations.Creation
             return typeNodes;
         }
 
-        public List<U> GetParametersOfType<T,U>() where U : ExposedParameter
+        public List<T> GetParametersOfType<T>() where T : ExposedParameter
         {
-            List<U> list = new List<U>();
+            List<T> list = new List<T>();
             foreach(var val in exposedParameters)
             {
-                if (val.value.GetType() == typeof(T))
+                if (val.GetType() == typeof(T))
                 {
-                    list.Add(val as U);
+                    list.Add(val as T);
                 }
             }
             return list;

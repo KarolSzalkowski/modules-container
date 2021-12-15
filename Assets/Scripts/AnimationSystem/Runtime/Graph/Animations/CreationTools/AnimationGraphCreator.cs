@@ -150,15 +150,10 @@ namespace AnimationSystem.Graph.Animations.Creation
                     Debug.LogError($"Empty parameter name on index {i}. Fix it and try again");
                     return false;
                 }
-                var parameterGuid = "";
-                if (SampleGraph.GetExposedParameter(parameters[i].ParameterName) != null)
-                {
-                    parameterGuid = SampleGraph.GetExposedParameter(parameters[i].ParameterName).guid;
-                }
-                else
+                if (SampleGraph.GetExposedParameter(parameters[i].ParameterName) == null)
                 {
                     var parameterName = parameters[i].ParameterName;
-                    parameterGuid = SampleGraph.AddExposedParameter(parameterName, typeof(W), parameters[i].ParameterValue);
+                    SampleGraph.AddExposedParameter(parameterName, typeof(W), parameters[i].ParameterValue);
                     EditorUtility.SetDirty(SampleGraph);
                     AssetDatabase.SaveAssetIfDirty(SampleGraph);
                 }
@@ -195,11 +190,11 @@ namespace AnimationSystem.Graph.Animations.Creation
                 return false;
             }
 
-            var goNodes = SampleGraph.GetParameterNodesOfType<GameObject>();
+            var goNodes = SampleGraph.GetParametersOfType<GameObjectParameter>();
 
             for (int i = 0; i < goNodes.Count; i++)
             {
-                var matched = AnimableObjects.Find(a => a.GraphParameterName == goNodes[i].parameter.name);
+                var matched = AnimableObjects.Find(a => a.GraphParameterName == goNodes[i].name);
                 if (matched == null)
                 {
                     AnimableObjects.Add(new AnimableObject() { GraphParameterName = goNodes[i].name });
@@ -241,7 +236,7 @@ namespace AnimationSystem.Graph.Animations.Creation
         /// <returns>true if fill</returns>
         public bool CheckParametersWithType<T, U, W>(ref List<W> paramsInObject) where W : BaseParameterData<T, U> where U : ExposedParameter
         {
-            var paramNodes = SampleGraph.GetParametersOfType<T, U>();
+            var paramNodes = SampleGraph.GetParametersOfType<U>();
 
             for (int i = 0; i < paramNodes.Count; i++)
             {
@@ -301,11 +296,24 @@ namespace AnimationSystem.Graph.Animations.Creation
         /// </summary>
         private void FillAnimationParameters()
         {
-            var vect3params = SampleGraph.GetParametersOfType<Vector3, Vector3Parameter>();
-            foreach(var v3param in vect3params)
+            FillParametersOfType<float, FloatParameter, FloatParameterData>(ref ParametersContainer.FloatParameterDatas);
+            FillParametersOfType<Vector3, Vector3Parameter, Vector3ParameterData>(ref ParametersContainer.Vector3ParameterDatas);
+        }
+
+        /// <summary>
+        /// Fills parameters of given type T
+        /// </summary>
+        /// <typeparam name="T">Input value type</typeparam>
+        /// <typeparam name="U">Parameter Type - inherits from ExposedParameter</typeparam>
+        /// <typeparam name="W">Parameter Data Model - inherits from BaseParameterData</typeparam>
+        /// <param name="paramsInObject"></param>
+        private void FillParametersOfType<T, U, W>(ref List<W> paramsInObject) where W : BaseParameterData<T, U> where U : ExposedParameter
+        {
+            var parameters = SampleGraph.GetParametersOfType<U>();
+            foreach(var parameter in parameters)
             {
-                v3param.value = ParametersContainer.Vector3ParameterDatas.Find(p => p.ParameterName == v3param.name).ParameterValue;
-                SampleGraph.NotifyExposedParameterValueChanged(v3param);
+                parameter.value = paramsInObject.Find(p => p.ParameterName == parameter.name).ParameterValue;
+                SampleGraph.NotifyExposedParameterValueChanged(parameter);
             }
         }
 

@@ -69,8 +69,8 @@ MonoBehaviour:
         PublicKeyToken=null
   - position:
       serializedVersion: 2
-      x: 208
-      y: 21
+      x: 209
+      y: 20
       width: 181
       height: 223
     opened: 1
@@ -81,10 +81,11 @@ MonoBehaviour:
   exposedParameters:
   - id: 4
   - id: 5
+  - id: 6
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 419, y: 255, z: 0}
+  position: {x: 343, y: 361, z: 0}
   scale: {x: 0.8695652, y: 0.8695652, z: 1}
   <AnimableObjects>k__BackingField: []
   references:
@@ -178,7 +179,7 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 6
+          id: 7
         val: {fileID: 0}
     00000005:
       type: {class: Vector3Parameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
@@ -192,17 +193,37 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 7
+          id: 8
         val: {x: 0, y: 180, z: 0}
     00000006:
-      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        isHidden: 0
-        expanded: 0
-        guid: 9ba00b39-a9d8-42ef-8562-1b97917ea396
+        guid: 7c430d34-6965-46cf-8611-dbf8408b6c66
+        name: Sample
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 9
+        val: {fileID: 0}
     00000007:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
+        guid: 9ba00b39-a9d8-42ef-8562-1b97917ea396
+    00000008:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
         guid: 86528706-63b4-4e4b-a839-0cc5655cbf4d
+    00000009:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 7c430d34-6965-46cf-8611-dbf8408b6c66
