@@ -57,6 +57,10 @@ namespace AnimationSystem.Logic.Animation
             sequence.Complete();
         }
 
+        public void SetParameterValue<T>(string paramName, T value)
+        {
+            animationGraphCreator.SetParameter<T>(paramName, value);
+        }
         
     }
 }

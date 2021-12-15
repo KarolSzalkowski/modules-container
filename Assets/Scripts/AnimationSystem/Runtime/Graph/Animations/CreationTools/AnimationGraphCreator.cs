@@ -328,5 +328,13 @@ namespace AnimationSystem.Graph.Animations.Creation
             var connectedTo = animNodes.FindAll(n => n.GetAssignedParameter().parameter.name == parameterNode);
             return connectedTo;
         }
+
+        #region Remote Control
+        public void SetParameter<T>(string parameterName, T value) 
+        {
+            
+        }
+
+        #endregion
     }
 }
