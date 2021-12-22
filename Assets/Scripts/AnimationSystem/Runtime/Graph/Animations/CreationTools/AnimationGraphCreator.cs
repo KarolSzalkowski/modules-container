@@ -20,18 +20,19 @@ namespace AnimationSystem.Graph.Animations.Creation
         [BoxGroup("Parameters"), SerializeField]
         public ParametersContainer ParametersContainer;
 
-        [BoxGroup("Graph"), SerializeField]
+        [BoxGroup("GRAPH CONTROL"), SerializeField]
         public AnimationGraph SampleGraph;
         #endregion
 
 
 #if UNITY_EDITOR
 
+        #region Graph Control
         /// <summary>
         /// Creates animables and parameters using data from animation runner, then shows created graph.
         /// Note that SampleGraph need to be filled with empty animation graph.
         /// </summary>
-        [BoxGroup("Graph Control"), Button("CreateGraph")]
+        [BoxGroup("GRAPH CONTROL"), Button("CreateGraph")]
         public void CreateGraph()
         {
             if (SampleGraph == null)
@@ -62,7 +63,7 @@ namespace AnimationSystem.Graph.Animations.Creation
         /// If AnimationRunner has defined animations in Animables - create nodes with given anim type with attached object nodes.
         /// </summary>
         /// <returns>TRUE if Graph updated correctly. False if updating failed - check logs.</returns>
-        [BoxGroup("Graph Control"), Button("Update Graph")]
+        [BoxGroup("GRAPH CONTROL"), Button("Update Graph")]
         public bool UpdateGraph()
         {
             if (SampleGraph == null)
@@ -124,10 +125,27 @@ namespace AnimationSystem.Graph.Animations.Creation
         }
 
         /// <summary>
+        /// Opens current attached Graph if its not null.
+        /// </summary>
+        /// <returns>TRUE if graph opens correctly, FALSE if graph is not set</returns>
+        [BoxGroup("GRAPH CONTROL"), Button("Show Graph")]
+        public bool ShowGraph()
+        {
+            if (SampleGraph == null)
+            {
+                Debug.LogError("Create empty Animation Graph and assign it to SampleGraph");
+                return false;
+            }
+            Undo.undoRedoPerformed?.Invoke();
+            EditorWindow.GetWindow<AnimationSystem.Editor.Windows.ExposedPropertiesGraphWindow>().InitializeGraph(SampleGraph as BaseGraph);
+            return true;
+        }
+
+        /// <summary>
         /// Creates Parameters in graph based on params in AnimationRunner
         /// </summary>
         /// <returns></returns>
-        public bool CreateParams()
+        private bool CreateParams()
         {
             if (!CreateParameters<FloatParameterData, float, FloatParameter>(ParametersContainer.FloatParameterDatas))
                 return false;
@@ -136,7 +154,7 @@ namespace AnimationSystem.Graph.Animations.Creation
             return true;
         }
 
-        public bool CreateParameters<T, U, W>(List<T> parameters) where T : BaseParameterData<U, W> where W : ExposedParameter 
+        private bool CreateParameters<T, U, W>(List<T> parameters) where T : BaseParameterData<U, W> where W : ExposedParameter 
         {
             if (SampleGraph == null)
             {
@@ -161,27 +179,14 @@ namespace AnimationSystem.Graph.Animations.Creation
             return true;
         }
 
+        #endregion
 
-        /// <summary>
-        /// Opens current attached Graph if its not null.
-        /// </summary>
-        [BoxGroup("Graph Control"), Button("Show Graph")]
-        public void ShowGraph()
-        {
-            if (SampleGraph == null)
-            {
-                Debug.LogError("Create empty Animation Graph and assign it to SampleGraph");
-                return;
-            }
-            Undo.undoRedoPerformed?.Invoke();
-            EditorWindow.GetWindow<AnimationSystem.Editor.Windows.ExposedPropertiesGraphWindow>().InitializeGraph(SampleGraph as BaseGraph);
-        }
-
+        #region Matching
         /// <summary>
         /// Checks if Animation Runner has all needed Animables and Paramaters required by Graph
         /// </summary>
         /// <returns>TRUE if has all parameters, FALSE if doesn't have parameters or parameters got empty values.</returns>
-        [BoxGroup("Objects To Graph Match"), Button("Check if object contain graph parameters")]
+        [BoxGroup("MATCHING"), Button("Check if object contain graph parameters")]
         public bool CheckIfObjectsMatchingGraphParameters()
         {
             if (SampleGraph == null)
@@ -249,8 +254,11 @@ namespace AnimationSystem.Graph.Animations.Creation
             }
             return true;
         }
+        #endregion
 
 #endif
+
+        #region Pre-Animation Filling
         /// <summary>
         /// Fills nodes values in animation graph.
         /// </summary>
@@ -316,7 +324,9 @@ namespace AnimationSystem.Graph.Animations.Creation
                 SampleGraph.NotifyExposedParameterValueChanged(parameter);
             }
         }
+        #endregion
 
+        #region Nodes Finding
         /// <summary>
         /// Gets connected nodes to node with <paramref name="parameterNode"/>
         /// </summary>
@@ -328,5 +338,6 @@ namespace AnimationSystem.Graph.Animations.Creation
             var connectedTo = animNodes.FindAll(n => n.GetAssignedParameter().parameter.name == parameterNode);
             return connectedTo;
         }
+        #endregion
     }
 }
