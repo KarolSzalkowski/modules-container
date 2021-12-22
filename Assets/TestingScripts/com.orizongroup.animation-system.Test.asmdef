@@ -1,0 +1,20 @@
+{
+    "name": "com.orizongroup.animation-system.Test",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a432eb0a70c5c4a37ab50d59671586f8",
+        "GUID:ca937d03ee5dd4d699091438dc0f3ae6",
+        "GUID:3ea6b37c31700c54f8bc86f3ed30da81",
+        "GUID:4dc2cf79987766043a4754d67e9f67df",
+        "GUID:b85a9b696dea92b4f9d0efe8b3f0e5b7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

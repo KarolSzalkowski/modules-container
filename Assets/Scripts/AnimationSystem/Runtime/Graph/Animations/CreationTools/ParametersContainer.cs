@@ -11,14 +11,14 @@ namespace AnimationSystem.Graph.Animations.Creation
         public List<Vector3ParameterData> Vector3ParameterDatas;
         public List<FloatParameterData> FloatParameterDatas;
 
-        public void SetParameterValue<T>(string paramName, T value)
+        public void SetParameterValue(string parameterName, Vector3 value)
         {
-            //switch (typeof(T))
-            //{
-            //    case Vector3ParameterData:
-            //        Vector3ParameterDatas.Find(p => p.ParameterName == paramName).ParameterValue = value;
-            //        break;
-            //}
+            Vector3ParameterDatas.Find(p => p.ParameterName == parameterName).ParameterValue = value;
+        }
+        
+        public void SetParameterValue(string parameterName, float value)
+        {
+            FloatParameterDatas.Find(p => p.ParameterName == parameterName).ParameterValue = value;
         }
     }
 }

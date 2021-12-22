@@ -81,12 +81,11 @@ MonoBehaviour:
   exposedParameters:
   - id: 4
   - id: 5
-  - id: 6
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 293, y: 406, z: 0}
-  scale: {x: 0.65751624, y: 0.65751624, z: 1}
+  position: {x: 294, y: 356, z: 0}
+  scale: {x: 1, y: 1, z: 1}
   <AnimableObjects>k__BackingField: []
   references:
     version: 1
@@ -124,7 +123,7 @@ MonoBehaviour:
         animableGo: {fileID: 0}
         ChangeRotationAnimation:
           objectToRotate: {fileID: 0}
-          targetEulersRot: {x: 0, y: 180, z: 0}
+          targetEulersRot: {x: 0, y: 65, z: 80}
           useToRotation: 1
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
@@ -132,7 +131,7 @@ MonoBehaviour:
           <AnimationTime>k__BackingField: 3
           <Ease>k__BackingField: 1
           <AssignedNodeGUID>k__BackingField: 
-        targetEulersRot: {x: 0, y: 180, z: 0}
+        targetEulersRot: {x: 0, y: 65, z: 80}
     00000002:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
@@ -179,7 +178,7 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 7
+          id: 6
         val: {fileID: 0}
     00000005:
       type: {class: Vector3Parameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
@@ -193,37 +192,17 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 8
-        val: {x: 0, y: 180, z: 0}
+          id: 7
+        val: {x: 0, y: 65, z: 80}
     00000006:
-      type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
-      data:
-        guid: 7c430d34-6965-46cf-8611-dbf8408b6c66
-        name: Sample
-        type: 
-        serializedValue:
-          serializedType: 
-          serializedName: 
-          serializedValue: 
-        input: 1
-        settings:
-          id: 9
-        val: {fileID: 0}
-    00000007:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
         guid: 9ba00b39-a9d8-42ef-8562-1b97917ea396
-    00000008:
+    00000007:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
         guid: 86528706-63b4-4e4b-a839-0cc5655cbf4d
-    00000009:
-      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
-      data:
-        isHidden: 0
-        expanded: 0
-        guid: 7c430d34-6965-46cf-8611-dbf8408b6c66

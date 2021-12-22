@@ -24,11 +24,13 @@ namespace AnimationSystem.Logic.Animation
         [BoxGroup("Graph"), SerializeField]
         protected AnimationGraphCreator animationGraphCreator;
 
+        public ParametersContainer ParametersContainer => animationGraphCreator.ParametersContainer;
+
         private void Start()
         {
         }
 
-        [BoxGroup("Animation"), Button("PLAY ANIMATION")]
+        [BoxGroup("ANIMATION"), Button("Play")]
         public void Play(Action onFinish = null)
         {
             animationGraphCreator.FillParameters();
@@ -55,11 +57,6 @@ namespace AnimationSystem.Logic.Animation
         public void Complete()
         {
             sequence.Complete();
-        }
-
-        public void SetParameterValue<T>(string paramName, T value)
-        {
-            animationGraphCreator.SetParameter<T>(paramName, value);
         }
         
     }
