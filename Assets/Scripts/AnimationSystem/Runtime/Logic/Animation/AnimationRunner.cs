@@ -24,6 +24,8 @@ namespace AnimationSystem.Logic.Animation
         [BoxGroup("Graph"), SerializeField]
         protected AnimationGraphCreator animationGraphCreator;
 
+        private AnimationGraphCreator instanced;
+
         public ParametersContainer ParametersContainer => animationGraphCreator.ParametersContainer;
 
         private void Start()
@@ -34,6 +36,11 @@ namespace AnimationSystem.Logic.Animation
         public void Play(Action onFinish = null)
         {
             animationGraphCreator.FillParameters();
+
+            foreach(var edg in animationGraphCreator.SampleGraph.edges)
+            {
+                Debug.Log($"Graph Edges: {edg}");
+            }
 
             var graphProcessor = new AnimationProcessor(animationGraphCreator.SampleGraph);
             graphProcessor.Run();

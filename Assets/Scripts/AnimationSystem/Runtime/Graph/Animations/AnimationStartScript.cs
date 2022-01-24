@@ -22,6 +22,8 @@ namespace AnimationSystem.Graph.Animations
 		{
 			var firstPart = outputPorts[0].GetEdges()[0].inputNode as AnimationNode;
 
+			Debug.Log($"Animation started: {firstPart}");
+
 			var sequenceData = firstPart.GetSequenceData(SequenceAddType.Append);
 
 			Sequence sequence = DOTween.Sequence();

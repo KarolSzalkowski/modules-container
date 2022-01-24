@@ -265,6 +265,11 @@ namespace AnimationSystem.Graph.Animations.Creation
         /// <returns>TRUE if values are filled correctly, FALSE if got an error - Check logs</returns>
         public bool FillParameters()
         {
+            foreach(var anim in AnimableObjects)
+            {
+                Debug.Log($"Animable: {anim.ObjectToAnimate}");
+            }
+
             FillAnimationParameters();
 
             if (SampleGraph == null)
@@ -272,29 +277,38 @@ namespace AnimationSystem.Graph.Animations.Creation
                 Debug.LogError("Create empty Animation Graph and assign it to SampleGraph");
                 return false;
             }
-            var animableParameters = SampleGraph.exposedParameters.FindAll(p => p.value.GetType() == typeof(GameObject));
+            var animableParameters = SampleGraph.exposedParameters.FindAll(p => p.GetValueType() == typeof(GameObject));
             if (AnimableObjects.Count < animableParameters.Count)
             {
                 Debug.LogError($"MISSING OBJECTS! GRAPH NEED {animableParameters.Count} ANIMABLE OBJECTS");
                 return false;
             }
+
             var goNodes = SampleGraph.GetParameterNodesOfType<GameObject>();
-            foreach (var paramNode in goNodes)
+            foreach (var anim in goNodes)
             {
-                var attachedEdges = paramNode.outputPorts[0].GetEdges();
-                foreach (var att in attachedEdges)
-                {
-                    var no = att.inputNode as AnimationNode;
-                    if(att.inputPort.fieldName == "animableGo")
-                    {
-                        no.SetAnimableObject(AnimableObjects.Find(a => a.GraphParameterName == paramNode.parameter.name).ObjectToAnimate);
-                    }
-                    else
-                    {
-                        no.SetOptionalGOs(new GameObject[] { AnimableObjects.Find(a => a.GraphParameterName == paramNode.parameter.name).ObjectToAnimate });
-                    }
-                }
+                Debug.Log($"GO Node: {anim.parameter.name}");
             }
+            //foreach (var paramNode in goNodes)
+            //{
+            //    var attachedEdges = paramNode.outputPorts[0].GetEdges();
+            //    foreach (var anim in attachedEdges)
+            //    {
+            //        Debug.Log($"Edge: {anim.inputNode as AnimationNode}");
+            //    }
+            //    foreach (var att in attachedEdges)
+            //    {
+            //        var no = att.inputNode as AnimationNode;
+            //        if(att.inputPort.fieldName == "animableGo")
+            //        {
+            //            no.SetAnimableObject(AnimableObjects.Find(a => a.GetGraphParamName() == paramNode.parameter.name).ObjectToAnimate);
+            //        }
+            //        else
+            //        {
+            //            no.SetOptionalGOs(new GameObject[] { AnimableObjects.Find(a => a.GraphParameterName == paramNode.parameter.name).ObjectToAnimate });
+            //        }
+            //    }
+            //}
 
             return true;
         }
@@ -306,6 +320,15 @@ namespace AnimationSystem.Graph.Animations.Creation
         {
             FillParametersOfType<float, FloatParameter, FloatParameterData>(ref ParametersContainer.FloatParameterDatas);
             FillParametersOfType<Vector3, Vector3Parameter, Vector3ParameterData>(ref ParametersContainer.Vector3ParameterDatas);
+
+            var goParameters = new List<GameObjectParameterData>();
+            foreach (var go in AnimableObjects)
+            {
+                var newGoParameter = new GameObjectParameterData(go.GraphParameterName);
+                newGoParameter.ParameterValue = go.ObjectToAnimate;
+                goParameters.Add(newGoParameter);
+            }
+            FillParametersOfType<GameObject, GameObjectParameter, GameObjectParameterData>(ref goParameters);
         }
 
         /// <summary>

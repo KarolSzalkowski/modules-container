@@ -27,19 +27,19 @@ MonoBehaviour:
     outputFieldName: output
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: 97d294c9-5196-4376-aadc-133dd6ad013c
-    owner: {fileID: 11400000}
-    inputNodeGUID: 60570e16-c8be-498a-bee5-fc8457b14ef6
-    outputNodeGUID: b2b845c5-c755-4868-9b92-5086aa72dad0
-    inputFieldName: animableGo
-    outputFieldName: output
-    inputPortIdentifier: 
-    outputPortIdentifier: output
   - GUID: a2db619a-5eab-4997-a820-8e6f44457dd1
     owner: {fileID: 11400000}
     inputNodeGUID: 60570e16-c8be-498a-bee5-fc8457b14ef6
     outputNodeGUID: b8163a21-c035-408e-9abc-c454513d6177
     inputFieldName: targetEulersRot
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: output
+  - GUID: e2ff26c2-fd65-49a8-93f7-ea9e1186dd9f
+    owner: {fileID: 11400000}
+    inputNodeGUID: 60570e16-c8be-498a-bee5-fc8457b14ef6
+    outputNodeGUID: b2b845c5-c755-4868-9b92-5086aa72dad0
+    inputFieldName: animableGo
     outputFieldName: output
     inputPortIdentifier: 
     outputPortIdentifier: output
@@ -84,9 +84,9 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 294, y: 356, z: 0}
-  scale: {x: 1, y: 1, z: 1}
-  <AnimableObjects>k__BackingField: []
+  position: {x: 265, y: 245, z: 0}
+  scale: {x: 0.7561437, y: 0.7561437, z: 1}
+  AnimableObjects: []
   references:
     version: 1
     00000000:
@@ -123,15 +123,15 @@ MonoBehaviour:
         animableGo: {fileID: 0}
         ChangeRotationAnimation:
           objectToRotate: {fileID: 0}
-          targetEulersRot: {x: 0, y: 65, z: 80}
+          targetEulersRot: {x: 160, y: 59, z: 54}
           useToRotation: 1
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
           <Loops>k__BackingField: 0
-          <AnimationTime>k__BackingField: 3
-          <Ease>k__BackingField: 1
+          <AnimationTime>k__BackingField: 25
+          <Ease>k__BackingField: 30
           <AssignedNodeGUID>k__BackingField: 
-        targetEulersRot: {x: 0, y: 65, z: 80}
+        targetEulersRot: {x: 160, y: 59, z: 54}
     00000002:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
@@ -193,7 +193,7 @@ MonoBehaviour:
         input: 1
         settings:
           id: 7
-        val: {x: 0, y: 65, z: 80}
+        val: {x: 160, y: 59, z: 54}
     00000006:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:

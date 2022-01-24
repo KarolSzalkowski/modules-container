@@ -63,7 +63,6 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
             {
 				var lookAt = outLookAt.GetEdges()[0].inputNode as LookAtAnimationNode;
 				return lookAt.LookAtAnimation.LookAtPosition;
-				return null;
             }
 			return null;
         }

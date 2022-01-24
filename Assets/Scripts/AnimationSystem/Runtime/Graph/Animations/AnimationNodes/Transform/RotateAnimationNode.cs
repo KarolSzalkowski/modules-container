@@ -24,12 +24,14 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
 		public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
-			var rotPort = inputPorts.Find(p => p.fieldName == "targetEulersRot").GetEdges();
+			var inputPort = inputPorts.Find(p => p.fieldName == "targetEulersRot");
+			var rotPort = inputPort.GetEdges();
 			if (rotPort.Count > 0)
-			{
+			{ 
 				var param = rotPort[0].outputNode as ParameterNode;
 				ChangeRotationAnimation.SetTargetRotation((Vector3)param.parameter.value);
 			}
+			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
 			var data = new SequenceTransitionData(ChangeRotationAnimation.GetTween(), sequenceAddType);
 			return GetSequenceDataFromPorts(data);
 		}
@@ -41,7 +43,9 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
 		public override ParameterNode GetAssignedParameter()
 		{
-			return inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0].outputNode as ParameterNode;
+			var edge = inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0];
+			Debug.Log($"Edge found: {edge}");
+			return edge.outputNode as ParameterNode;
 		}
 
 		public override void SetAnimableObject(GameObject gameObject)
