@@ -16,47 +16,5 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 14000000
-  lastScan: 637775952964588628
-  supportSerializedTypes:
-  - TypeName: AnimationSystem.Graph.Animations.AnimationNodes.Transform.RotateAnimationNode,
-      com.orizongroup.animation-system
-    IsCustom: 1
-    Emit: 1
-  - TypeName: AnimationSystem.Logic.Animation.AnimableObject, com.orizongroup.animation-system
-    IsCustom: 1
-    Emit: 1
-  - TypeName: AnimationSystem.Graph.Animations.AnimationNode, com.orizongroup.animation-system
-    IsCustom: 1
-    Emit: 1
-  - TypeName: GraphProcessor.BaseGraph, com.alelievr.NodeGraphProcessor.Runtime
-    IsCustom: 1
-    Emit: 1
-  - TypeName: GraphProcessor.BaseNode, com.alelievr.NodeGraphProcessor.Runtime
-    IsCustom: 1
-    Emit: 1
-  - TypeName: GraphProcessor.GameObjectParameter, com.alelievr.NodeGraphProcessor.Runtime
-    IsCustom: 1
-    Emit: 1
-  - TypeName: System.Collections.Generic.List`1[[GraphProcessor.SerializableEdge,
-      com.alelievr.NodeGraphProcessor.Runtime]], mscorlib
-    IsCustom: 1
-    Emit: 1
-  - TypeName: GraphProcessor.NodeInputPortContainer, com.alelievr.NodeGraphProcessor.Runtime
-    IsCustom: 1
-    Emit: 1
-  - TypeName: GraphProcessor.NodeOutputPortContainer, com.alelievr.NodeGraphProcessor.Runtime
-    IsCustom: 1
-    Emit: 1
-  - TypeName: GraphProcessor.ParameterNode, com.alelievr.NodeGraphProcessor.Runtime
-    IsCustom: 1
-    Emit: 1
-  - TypeName: GraphProcessor.SerializableEdge, com.alelievr.NodeGraphProcessor.Runtime
-    IsCustom: 1
-    Emit: 1
-  - TypeName: AnimationSystem.Logic.Animation.Interfaces.IAnimable, com.orizongroup.animation-system
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.List`1[[AnimationSystem.Logic.Animation.Interfaces.IAnimable,
-      com.orizongroup.animation-system]], mscorlib
-    IsCustom: 0
-    Emit: 1
+  lastScan: 637799214487157095
+  supportSerializedTypes: []

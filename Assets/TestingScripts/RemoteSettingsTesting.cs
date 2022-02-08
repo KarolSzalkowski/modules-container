@@ -20,7 +20,7 @@ namespace TestingScripts
         [Button("Set Rotation")]
         public void SetTargetRotation()
         {
-            targetRunner.ParametersContainer.SetParameterValue("RotationValue", new Vector3(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));
+            //targetRunner.ParametersContainer.SetParameterValue("RotationValue", new Vector3(Random.Range(0, 180), Random.Range(0, 180), Random.Range(0, 180)));
             targetRunner.Play();
         }
     }

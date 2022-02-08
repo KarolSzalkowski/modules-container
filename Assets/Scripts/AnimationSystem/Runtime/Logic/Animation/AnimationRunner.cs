@@ -22,26 +22,14 @@ namespace AnimationSystem.Logic.Animation
         private Sequence sequence;
 
         [BoxGroup("Graph"), SerializeField]
-        protected AnimationGraphCreator animationGraphCreator;
-
-        private AnimationGraphCreator instanced;
+        protected AnimationGraphCreator animationGraphCreator = new AnimationGraphCreator();
 
         public ParametersContainer ParametersContainer => animationGraphCreator.ParametersContainer;
-
-        private void Start()
-        {
-        }
 
         [BoxGroup("ANIMATION"), Button("Play")]
         public void Play(Action onFinish = null)
         {
             animationGraphCreator.FillParameters();
-
-            foreach(var edg in animationGraphCreator.SampleGraph.edges)
-            {
-                Debug.Log($"Graph Edges: {edg}");
-            }
-
             var graphProcessor = new AnimationProcessor(animationGraphCreator.SampleGraph);
             graphProcessor.Run();
         }

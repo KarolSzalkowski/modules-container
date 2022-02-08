@@ -16,7 +16,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 		#endregion
 
 		[Output("Look At Animation")]
-		public List<SequenceTransitionData> lookAtAnimationNode;
+		public int lookAtAnimationNode;
 
 		public override string name => "Path Move Animation";
 

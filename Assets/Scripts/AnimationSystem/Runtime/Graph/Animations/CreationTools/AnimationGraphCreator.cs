@@ -120,7 +120,6 @@ namespace AnimationSystem.Graph.Animations.Creation
             if (!CreateParams())
                 return false;
             
-            Undo.undoRedoPerformed?.Invoke();
             return true;
         }
 
@@ -136,7 +135,6 @@ namespace AnimationSystem.Graph.Animations.Creation
                 Debug.LogError("Create empty Animation Graph and assign it to SampleGraph");
                 return false;
             }
-            Undo.undoRedoPerformed?.Invoke();
             EditorWindow.GetWindow<AnimationSystem.Editor.Windows.ExposedPropertiesGraphWindow>().InitializeGraph(SampleGraph as BaseGraph);
             return true;
         }
@@ -150,6 +148,8 @@ namespace AnimationSystem.Graph.Animations.Creation
             if (!CreateParameters<FloatParameterData, float, FloatParameter>(ParametersContainer.FloatParameterDatas))
                 return false;
             if (!CreateParameters<Vector3ParameterData, Vector3, Vector3Parameter>(ParametersContainer.Vector3ParameterDatas))
+                return false;
+            if (!CreateParameters<StringParameterData, string, StringParameter>(ParametersContainer.StringParameterDatas))
                 return false;
             return true;
         }
@@ -320,6 +320,7 @@ namespace AnimationSystem.Graph.Animations.Creation
         {
             FillParametersOfType<float, FloatParameter, FloatParameterData>(ref ParametersContainer.FloatParameterDatas);
             FillParametersOfType<Vector3, Vector3Parameter, Vector3ParameterData>(ref ParametersContainer.Vector3ParameterDatas);
+            FillParametersOfType<string, StringParameter, StringParameterData>(ref ParametersContainer.StringParameterDatas);
 
             var goParameters = new List<GameObjectParameterData>();
             foreach (var go in AnimableObjects)

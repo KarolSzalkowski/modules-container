@@ -1,0 +1,285 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44306a0b8006d254a8d36c5ac31b1160, type: 3}
+  m_Name: SimpleAnimation
+  m_EditorClassIdentifier: 
+  serializedNodes: []
+  nodes:
+  - id: 0
+  - id: 1
+  - id: 2
+  - id: 3
+  - id: 4
+  edges:
+  - GUID: 460b4df0-f0f2-4c55-8d19-f812fb77f26e
+    owner: {fileID: 11400000}
+    inputNodeGUID: 3bee5956-0651-4c71-97a2-dac3f9fbd294
+    outputNodeGUID: bd958201-dafc-4c58-b783-5ee9115f433f
+    inputFieldName: animationInput
+    outputFieldName: firstNode
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: d271fda8-42fb-46a3-ac08-7affe133798b
+    owner: {fileID: 11400000}
+    inputNodeGUID: 3bee5956-0651-4c71-97a2-dac3f9fbd294
+    outputNodeGUID: fd20d038-642d-4f2d-88de-d85902973df6
+    inputFieldName: animableGo
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: output
+  - GUID: c724ffbd-493e-463b-8112-48753dca5cc1
+    owner: {fileID: 11400000}
+    inputNodeGUID: 9af25918-11be-4e29-8034-285c3ec56041
+    outputNodeGUID: 3bee5956-0651-4c71-97a2-dac3f9fbd294
+    inputFieldName: animationInput
+    outputFieldName: outputAppend
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 07c790c3-adb3-43cf-9e83-50183a4f6aba
+    owner: {fileID: 11400000}
+    inputNodeGUID: 9af25918-11be-4e29-8034-285c3ec56041
+    outputNodeGUID: ad68d4eb-c72b-4f87-8906-723d8862b362
+    inputFieldName: animableGo
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: output
+  groups: []
+  stackNodes: []
+  pinnedElements:
+  - position:
+      serializedVersion: 2
+      x: 285
+      y: 20
+      width: 150
+      height: 200
+    opened: 0
+    editorType:
+      serializedType: AnimationSystem.Editor.Windows.Views.FloatParametersView, com.orizongroup.animation-system.Editor,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 150
+      height: 200
+    opened: 0
+    editorType:
+      serializedType: AnimationSystem.Editor.Windows.Views.Vector3ParametersView,
+        com.orizongroup.animation-system.Editor, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - position:
+      serializedVersion: 2
+      x: 0
+      y: 21
+      width: 150
+      height: 200
+    opened: 1
+    editorType:
+      serializedType: AnimationSystem.Editor.Windows.Views.GameObjectParametersView,
+        com.orizongroup.animation-system.Editor, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - position:
+      serializedVersion: 2
+      x: 148
+      y: 20
+      width: 150
+      height: 200
+    opened: 0
+    editorType:
+      serializedType: AnimationSystem.Editor.Windows.Views.StringParametersView,
+        com.orizongroup.animation-system.Editor, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  exposedParameters:
+  - id: 5
+  - id: 6
+  - id: 7
+  serializedParameterList: []
+  stickyNotes: []
+  nodeInspectorReference: {fileID: 0}
+  position: {x: 219, y: 413, z: 0}
+  scale: {x: 0.43232757, y: 0.43232757, z: 1}
+  AnimableObjects: []
+  references:
+    version: 1
+    00000000:
+      type: {class: AnimationStartScript, ns: AnimationSystem.Graph.Animations, asm: com.orizongroup.animation-system}
+      data:
+        nodeCustomName: 
+        GUID: bd958201-dafc-4c58-b783-5ee9115f433f
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: -433.15652
+          y: -9.499987
+          width: 129
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        firstNode: 0
+    00000001:
+      type: {class: RotateAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Transform, asm: com.orizongroup.animation-system}
+      data:
+        nodeCustomName: 
+        GUID: 3bee5956-0651-4c71-97a2-dac3f9fbd294
+        computeOrder: 2
+        position:
+          serializedVersion: 2
+          x: -176
+          y: -2.5000114
+          width: 295
+          height: 330
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        NodeId: 0
+        animationInput: 0
+        animableGo: {fileID: 0}
+        outputAppend: 0
+        outputJoin: 0
+        ChangeRotationAnimation:
+          objectToRotate: {fileID: 0}
+          targetEulersRot: {x: 0, y: -180, z: 0}
+          useToRotation: 1
+          <SequenceAddType>k__BackingField: 0
+          <Delay>k__BackingField: 0
+          <Loops>k__BackingField: 0
+          <AnimationTime>k__BackingField: 5
+          <Ease>k__BackingField: 1
+          <AssignedNodeGUID>k__BackingField: 
+        targetEulersRot: {x: 0, y: 0, z: 0}
+    00000002:
+      type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: fd20d038-642d-4f2d-88de-d85902973df6
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: -286.48837
+          y: 125.28396
+          width: 110
+          height: 37
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        parameterGUID: a1bfc5c8-5877-4b36-873e-cb522008b039
+        accessor: 0
+    00000003:
+      type: {class: PathAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Transform, asm: com.orizongroup.animation-system}
+      data:
+        nodeCustomName: 
+        GUID: 9af25918-11be-4e29-8034-285c3ec56041
+        computeOrder: 4
+        position:
+          serializedVersion: 2
+          x: 153.41
+          y: -121.66997
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        NodeId: 0
+        animationInput: 0
+        animableGo: {fileID: 0}
+        outputAppend: 0
+        outputJoin: 0
+        PathAnimation:
+          objectToMove: {fileID: 0}
+          movingPath:
+          - {x: 0, y: 0, z: 0}
+          pathType: 0
+          <SequenceAddType>k__BackingField: 0
+          <Delay>k__BackingField: 0
+          <Loops>k__BackingField: 0
+          <AnimationTime>k__BackingField: 0
+          <Ease>k__BackingField: 0
+          <AssignedNodeGUID>k__BackingField: 
+        lookAtAnimationNode: 0
+    00000004:
+      type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: ad68d4eb-c72b-4f87-8906-723d8862b362
+        computeOrder: 3
+        position:
+          serializedVersion: 2
+          x: 52
+          y: -75
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        parameterGUID: 9e86cbb1-d88f-4107-b735-b33d7adb546c
+        accessor: 0
+    00000005:
+      type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        guid: a1bfc5c8-5877-4b36-873e-cb522008b039
+        name: CubeRotation
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 8
+        val: {fileID: 0}
+    00000006:
+      type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        guid: 9e86cbb1-d88f-4107-b735-b33d7adb546c
+        name: Cam
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 9
+        val: {fileID: 0}
+    00000007:
+      type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        guid: dcd8dc2a-ff82-48f9-82a8-a1d39c05ca65
+        name: New Game Object
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 10
+        val: {fileID: 0}
+    00000008:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: a1bfc5c8-5877-4b36-873e-cb522008b039
+    00000009:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 9e86cbb1-d88f-4107-b735-b33d7adb546c
+    0000000A:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: dcd8dc2a-ff82-48f9-82a8-a1d39c05ca65
