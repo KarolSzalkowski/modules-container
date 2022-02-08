@@ -13,6 +13,7 @@ namespace Assets.Scripts.AnimationSystem.Editor.Windows.Toolbar
         private ToolbarButtonData showGameObjects;
         private ToolbarButtonData showFloats;
         private ToolbarButtonData showVectors3;
+        private ToolbarButtonData showStrings;
 
         public AnimationGraphToolbarView(BaseGraphView baseGraphView) : base(baseGraphView)
         {
@@ -29,6 +30,8 @@ namespace Assets.Scripts.AnimationSystem.Editor.Windows.Toolbar
             showFloats = AddToggle("Float", animablesVisible, (v) => graphView.ToggleView<FloatParametersView>());
             bool vector3Visible = graphView.GetPinnedElementStatus<Vector3ParametersView>() != Status.Hidden;
             showVectors3 = AddToggle("Vector3", animablesVisible, (v) => graphView.ToggleView<Vector3ParametersView>());
+            bool stringVisible = graphView.GetPinnedElementStatus<StringParametersView>() != Status.Hidden;
+            showStrings = AddToggle("String", stringVisible, (v) => graphView.ToggleView<StringParametersView>());
 
             AddButton("Show In Project", () => EditorGUIUtility.PingObject(graphView.graph), false);
         }

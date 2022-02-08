@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.alelievr.node-graph-processor": "https://github.com/alelievr/NodeGraphProcessor.git#upm",
     "com.demigiant.dotween": "https://github.com/yoshida190/dotween.git#upm",
     "com.unity.collab-proxy": "1.9.0",
     "com.unity.ide.rider": "2.0.7",

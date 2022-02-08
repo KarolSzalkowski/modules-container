@@ -16,15 +16,15 @@ namespace AnimationSystem.Graph.Animations
 		public int NodeId;
 
 		#region InOut
-		[Input(name = "In")]
-		public List<SequenceTransitionData> input;
-		[Input(name = "Animable GO")]
+		[Input(name = "Input")]
+		public int animationInput;
+		[Input(name = "AnimableGO")]
 		public GameObject animableGo;
 
 		[Output(name = "Append")]
-		public List<SequenceTransitionData> outputAppend;
+		public int outputAppend;
 		[Output(name = "Join")]
-		public List<SequenceTransitionData> outputJoin;
+		public int outputJoin;
 		#endregion
 
 		public override string name => "AnimationNode";

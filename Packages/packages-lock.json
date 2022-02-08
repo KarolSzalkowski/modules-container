@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.alelievr.node-graph-processor": {
-      "version": "https://github.com/alelievr/NodeGraphProcessor.git#upm",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "9833a319b856de724ab612766d2bf24b43ceee02"
-    },
     "com.demigiant.dotween": {
       "version": "https://github.com/yoshida190/dotween.git#upm",
       "depth": 0,

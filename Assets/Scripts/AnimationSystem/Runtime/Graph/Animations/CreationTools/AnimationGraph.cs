@@ -6,13 +6,15 @@ namespace AnimationSystem.Graph.Animations.Creation
     using System.Collections.Generic;
     using UnityEngine;
 
-    [CreateAssetMenu(fileName = "Animation Graph", menuName = "Graphs/Animation Graph", order = 0)]
+    [System.Serializable, CreateAssetMenu(fileName = "Animation Graph", menuName = "Graphs/Animation Graph", order = 0)]
     public class AnimationGraph : BaseGraph
     {
         [field: SerializeField]
-        public List<GameObject> AnimableObjects { get; private set; }
+        public List<GameObject> AnimableObjects;
         public List<AnimationNode> GraphAnimationNodes => GetAnimationNodes();
-    
+
+        public List<AnimationNode> CurrentActiveNodes;
+
         public List<AnimationNode> GetAnimationNodes()
         {
             List<AnimationNode> animationNodes = new List<AnimationNode>();
@@ -45,7 +47,7 @@ namespace AnimationSystem.Graph.Animations.Creation
             var paramNodes = GetNodesOfType<ParameterNode>();
             foreach (var paramNode in paramNodes)
             {
-                if (paramNode.parameter.value.GetType() == typeof(T))
+                if (paramNode.parameter.GetValueType() == typeof(T))
                 {
                     typeNodes.Add(paramNode);
                 }

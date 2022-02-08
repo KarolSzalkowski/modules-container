@@ -63,5 +63,11 @@ namespace AnimationSystem.Logic.Animation
                 ObjectToAnimate.AddComponent(animType);
             }
         }
+
+        public string GetGraphParamName()
+        {
+            Debug.Log("Graph parameter name: " + GraphParameterName);
+            return GraphParameterName;
+        }
     }
 }

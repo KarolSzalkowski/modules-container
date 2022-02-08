@@ -13,14 +13,47 @@ namespace AnimationSystem.Graph.Animations
 	[System.Serializable, NodeMenuItem("Animation/Animation Start")]
 	public class AnimationStartScript : BaseNode
 	{
-		[Output(name = "Out")]
-		public List<SequenceTransitionData> output;
+		[Output(name = "First")]
+		public int firstNode;
 
 		public override string name => "Animation Start";
 
 		protected override void Process()
 		{
+			foreach(var outport in outputPorts)
+            {
+				Debug.Log("OutputPorts: " + outport);
+				foreach(var edg in outport.GetEdges())
+                {
+					Debug.Log("Edge : " + edg);
+                }
+            }
+
+
 			var firstPart = outputPorts[0].GetEdges()[0].inputNode as AnimationNode;
+
+			foreach(var edge in graph.edges)
+            {
+				Debug.Log("Edge found: " + edge);
+				if(edge != null)
+                {
+					Debug.Log("Edge Value: " + edge);
+                }
+                else
+                {
+					Debug.Log("Value not found");
+                }
+            }
+
+			var paramNodes = graph.nodes.FindAll(t => t.GetType() == typeof(ParameterNode));
+
+			foreach(var expParamNode in paramNodes)
+            {
+				var exp = expParamNode as ParameterNode;
+				Debug.Log("Param found: " + exp.parameter.name);
+            }
+
+			Debug.Log($"Animation started: {firstPart}");
 
 			var sequenceData = firstPart.GetSequenceData(SequenceAddType.Append);
 

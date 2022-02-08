@@ -48,6 +48,12 @@
 			view.OpenPinned<FloatParametersView>();
 			view.OpenPinned<Vector3ParametersView>();
 			view.OpenPinned<GameObjectParametersView>();
+			view.OpenPinned<StringParametersView>();
+
+			view.ToggleView<FloatParametersView>();
+			view.ToggleView<Vector3ParametersView>();
+			view.ToggleView<GameObjectParametersView>();
+			view.ToggleView<StringParametersView>();
 		}
 	}
 }
