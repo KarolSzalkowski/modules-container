@@ -1,19 +1,18 @@
 namespace AnimationSystem.Graph.Animations
 {
     using GraphProcessor;
+    using System;
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
 
     public class AnimationProcessor : BaseGraphProcessor
     {
-        public BaseNode firstNode;
-
         public AnimationProcessor(BaseGraph graph) : base(graph) { }
 
-        public override void Run()
+        public void RunAnimation(Action onComplete)
         {
-            foreach(var node in graph.nodes)
+            foreach (var node in graph.nodes)
             {
                 if (node.GetType() != typeof(AnimationStartScript))
                 {
@@ -21,8 +20,14 @@ namespace AnimationSystem.Graph.Animations
                 }
             }
 
-            firstNode = graph.nodes.Find(n => n.GetType() == typeof(AnimationStartScript));
+            var firstNode = graph.nodes.Find(n => n.GetType() == typeof(AnimationStartScript)) as AnimationStartScript;
             firstNode.OnProcess();
+            firstNode.ProcessAnimation(onComplete);
+        }
+
+        public override void Run()
+        {
+
         }
 
         public override void UpdateComputeOrder()

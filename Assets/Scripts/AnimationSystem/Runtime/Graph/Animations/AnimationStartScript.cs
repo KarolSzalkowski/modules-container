@@ -8,9 +8,9 @@ namespace AnimationSystem.Graph.Animations
     using AnimationSystem.Logic.Animation;
     using DG.Tweening;
 	using AnimationSystem.Graph.Animations.AnimationNodes;
+    using System;
 
-
-	[System.Serializable, NodeMenuItem("Animation/Animation Start")]
+    [System.Serializable, NodeMenuItem("Animation/Animation Start")]
 	public class AnimationStartScript : BaseNode
 	{
 		[Output(name = "First")]
@@ -18,42 +18,13 @@ namespace AnimationSystem.Graph.Animations
 
 		public override string name => "Animation Start";
 
-		protected override void Process()
-		{
-			foreach(var outport in outputPorts)
-            {
-				Debug.Log("OutputPorts: " + outport);
-				foreach(var edg in outport.GetEdges())
-                {
-					Debug.Log("Edge : " + edg);
-                }
-            }
+		public event Action OnComplete;
 
-
+		public void ProcessAnimation(Action onComplete)
+        {
 			var firstPart = outputPorts[0].GetEdges()[0].inputNode as AnimationNode;
 
-			foreach(var edge in graph.edges)
-            {
-				Debug.Log("Edge found: " + edge);
-				if(edge != null)
-                {
-					Debug.Log("Edge Value: " + edge);
-                }
-                else
-                {
-					Debug.Log("Value not found");
-                }
-            }
-
 			var paramNodes = graph.nodes.FindAll(t => t.GetType() == typeof(ParameterNode));
-
-			foreach(var expParamNode in paramNodes)
-            {
-				var exp = expParamNode as ParameterNode;
-				Debug.Log("Param found: " + exp.parameter.name);
-            }
-
-			Debug.Log($"Animation started: {firstPart}");
 
 			var sequenceData = firstPart.GetSequenceData(SequenceAddType.Append);
 
@@ -62,8 +33,17 @@ namespace AnimationSystem.Graph.Animations
 
 			AddSequence(sequence, sequenceData, 0);
 
-			sequence.onComplete = () => sequence.Complete();
+			sequence.onComplete = () =>
+			{
+				onComplete?.Invoke();
+				sequence.Complete();
+			};
 			sequence.SetAutoKill(false);
+		}
+
+		protected override void Process()
+		{
+
 		}
 
 		private void AddSequence(Sequence seq, SequenceTransitionData sequenceTransitionData, float insertTime)

@@ -31,7 +31,7 @@ namespace AnimationSystem.Logic.Animation
         {
             animationGraphCreator.FillParameters();
             var graphProcessor = new AnimationProcessor(animationGraphCreator.SampleGraph);
-            graphProcessor.Run();
+            graphProcessor.RunAnimation(onFinish);
         }
 
         public void PlayInstantly() {}
