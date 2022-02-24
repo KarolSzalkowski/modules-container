@@ -30,6 +30,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Rendering
 				var param = alphaPort[0].outputNode as ParameterNode;
 				ChangeAlphaAnimation.SetTargetAlpha((float)param.parameter.value);
             }
+			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
 			var data = new SequenceTransitionData(ChangeAlphaAnimation.GetTween(), sequenceAddType);
 			return GetSequenceDataFromPorts(data);
 		}
@@ -41,7 +42,8 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Rendering
 
         public override ParameterNode GetAssignedParameter()
         {
-			return inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0].outputNode as ParameterNode;
+			var edge = inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0];
+			return edge.outputNode as ParameterNode;
 		}
 
 		public override void SetAnimableObject(GameObject gameObject)

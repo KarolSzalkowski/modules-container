@@ -21,6 +21,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
 		public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
+			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
 			var data = new SequenceTransitionData(MoveAnimation.GetTween(), sequenceAddType);
 			return GetSequenceDataFromPorts(data);
 		}
@@ -32,7 +33,8 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
 		public override ParameterNode GetAssignedParameter()
 		{
-			return inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0].outputNode as ParameterNode;
+			var edge = inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0];
+			return edge.outputNode as ParameterNode;
 		}
 
 		public override void SetAnimableObject(GameObject gameObject)

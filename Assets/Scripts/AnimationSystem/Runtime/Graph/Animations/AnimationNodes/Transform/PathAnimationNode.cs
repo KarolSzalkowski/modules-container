@@ -32,6 +32,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
             {
 				tween.OnUpdate(new TweenCallback(lookAt));
             }
+			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
 			var data = new SequenceTransitionData(tween, sequenceAddType);
 			return GetSequenceDataFromPorts(data);
 		}
@@ -43,7 +44,8 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
 		public override ParameterNode GetAssignedParameter()
 		{
-			return inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0].outputNode as ParameterNode;
+			var edge = inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0];
+			return edge.outputNode as ParameterNode;
 		}
 
 		public override void SetAnimableObject(GameObject gameObject)

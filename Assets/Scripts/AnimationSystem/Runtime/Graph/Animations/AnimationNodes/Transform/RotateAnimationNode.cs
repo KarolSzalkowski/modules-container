@@ -44,7 +44,6 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 		public override ParameterNode GetAssignedParameter()
 		{
 			var edge = inputPorts.Find(p => p.fieldName == "animableGo").GetEdges()[0];
-			Debug.Log($"Edge found: {edge}");
 			return edge.outputNode as ParameterNode;
 		}
 
