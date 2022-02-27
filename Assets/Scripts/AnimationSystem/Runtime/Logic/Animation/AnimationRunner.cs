@@ -54,5 +54,9 @@ namespace AnimationSystem.Logic.Animation
             sequence.Complete();
         }
         
+        public void SetAnimation(AnimationGraph animationGraph)
+        {
+            animationGraphCreator.SampleGraph = animationGraph;
+        }
     }
 }
