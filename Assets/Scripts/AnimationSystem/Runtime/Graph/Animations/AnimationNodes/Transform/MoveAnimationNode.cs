@@ -14,6 +14,9 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 		public MoveAnimation MoveAnimation;
 		#endregion
 
+		[Input(name = "Target Pos")]
+		public Vector3 targetPosition;
+
 		[Input(name = "Initial Anch Min")]
 		public Vector3 initialAnchMin;
 
@@ -34,6 +37,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
 		public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
+			SetParameter("targetPosition");
 			SetParameter("initialAnchMin", AnchorType.InitialMin);
 			SetParameter("initialAnchMax", AnchorType.InitialMax);
 			SetParameter("targetAnchMin", AnchorType.TargetMin);
@@ -73,6 +77,17 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 			{
 				var param = rotPort[0].outputNode as ParameterNode;
 				MoveAnimation.SetParameter(anchorType, (Vector3)param.parameter.value);
+			}
+		}
+
+		private void SetParameter(string portName)
+        {
+			var inputPort = inputPorts.Find(p => p.fieldName == portName);
+			var rotPort = inputPort.GetEdges();
+			if (rotPort.Count > 0)
+			{
+				var param = rotPort[0].outputNode as ParameterNode;
+				MoveAnimation.SetParameter((Vector3)param.parameter.value);
 			}
 		}
     }

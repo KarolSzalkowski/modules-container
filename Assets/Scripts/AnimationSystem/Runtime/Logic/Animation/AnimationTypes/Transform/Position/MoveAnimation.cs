@@ -110,5 +110,10 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
                     break;
             }
         }
+
+        public void SetParameter(Vector2 value)
+        {
+            targetPosition = value;
+        }
     }
 }
