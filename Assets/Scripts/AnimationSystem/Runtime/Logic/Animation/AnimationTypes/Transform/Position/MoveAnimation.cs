@@ -2,6 +2,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
 {
     using AnimationSystem.Graph.Animations.AnimationNodes.Transform;
     using AnimationSystem.Logic.Animation.Interfaces;
+    using AnimationSystem.Logic.Animation.ParameterTypes;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;
@@ -89,6 +90,25 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
         public void SetAnimableObject(GameObject gameObject)
         {
             objectToMove = gameObject.GetComponent<RectTransform>();
+        }
+
+        public void SetParameter(AnchorType anchorType, Vector2 value)
+        {
+            switch (anchorType)
+            {
+                case AnchorType.InitialMin:
+                    initialAnchorMin = value;
+                    break;
+                case AnchorType.InitialMax:
+                    initialAnchorMax = value;
+                    break;
+                case AnchorType.TargetMin:
+                    destinationAnchorMin = value;
+                    break;
+                case AnchorType.TargetMax:
+                    destinationAnchorMax = value;
+                    break;
+            }
         }
     }
 }

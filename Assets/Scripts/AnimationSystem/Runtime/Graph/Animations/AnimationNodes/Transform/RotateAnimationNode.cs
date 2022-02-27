@@ -56,5 +56,5 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
         {
             throw new NotImplementedException();
         }
-    }
+	}
 }
