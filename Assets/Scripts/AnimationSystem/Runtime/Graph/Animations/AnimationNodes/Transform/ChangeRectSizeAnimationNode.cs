@@ -8,7 +8,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 	using AnimationSystem.Logic.Animation.ParameterTypes;
     using AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale;
 
-    [System.Serializable, NodeMenuItem("Animation/Transform/Move Animation")]
+    [System.Serializable, NodeMenuItem("Animation/Transform/Size Delta Animation")]
 	public class ChangeRectSizeAnimationNode : AnimationNode
 	{
 		#region Inspector Data
