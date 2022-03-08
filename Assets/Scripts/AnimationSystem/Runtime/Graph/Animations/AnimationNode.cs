@@ -9,6 +9,8 @@ namespace AnimationSystem.Graph.Animations
     using AnimationSystem.Logic.Animation.Interfaces;
     using AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha;
     using System;
+    using AnimationSystem.Graph.Animations.Creation;
+    using AnimationSystem.Graph.Animations.Creation.ParameterTypes;
 
     [System.Serializable]
 	public abstract class AnimationNode : BaseNode
@@ -32,6 +34,11 @@ namespace AnimationSystem.Graph.Animations
 		protected override void Process()
 		{
 			
+        }
+
+		public virtual void SetParameters(ParametersContainer parametersContainer)
+        {
+
         }
 
 		public abstract SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType);
@@ -65,5 +72,10 @@ namespace AnimationSystem.Graph.Animations
 		public abstract void SetOptionalGOs(GameObject[] optionalGOs);
 
 		public abstract Type GetNeededType();
+
+		protected Vector3ParameterData GetVector3ParameterWithName(List<Vector3ParameterData> parametersContainer, string parameterName)
+        {
+			return parametersContainer.Find(p => p.ParameterName == parameterName);
+        }
 	}
 }

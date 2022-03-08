@@ -289,27 +289,6 @@ namespace AnimationSystem.Graph.Animations.Creation
             {
                 Debug.Log($"GO Node: {anim.parameter.name}");
             }
-            //foreach (var paramNode in goNodes)
-            //{
-            //    var attachedEdges = paramNode.outputPorts[0].GetEdges();
-            //    foreach (var anim in attachedEdges)
-            //    {
-            //        Debug.Log($"Edge: {anim.inputNode as AnimationNode}");
-            //    }
-            //    foreach (var att in attachedEdges)
-            //    {
-            //        var no = att.inputNode as AnimationNode;
-            //        if(att.inputPort.fieldName == "animableGo")
-            //        {
-            //            no.SetAnimableObject(AnimableObjects.Find(a => a.GetGraphParamName() == paramNode.parameter.name).ObjectToAnimate);
-            //        }
-            //        else
-            //        {
-            //            no.SetOptionalGOs(new GameObject[] { AnimableObjects.Find(a => a.GraphParameterName == paramNode.parameter.name).ObjectToAnimate });
-            //        }
-            //    }
-            //}
-
             return true;
         }
 
