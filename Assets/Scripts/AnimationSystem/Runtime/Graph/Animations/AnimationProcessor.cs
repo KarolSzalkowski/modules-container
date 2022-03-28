@@ -1,6 +1,7 @@
 namespace AnimationSystem.Graph.Animations
 {
     using AnimationSystem.Graph.Animations.Creation;
+    using DG.Tweening;
     using GraphProcessor;
     using System;
     using System.Collections;
@@ -26,7 +27,7 @@ namespace AnimationSystem.Graph.Animations
             }
         }
 
-        public void RunAnimation(Action onComplete)
+        public Sequence RunAnimation(Action onComplete)
         {
             foreach (var node in graph.nodes)
             {
@@ -37,7 +38,7 @@ namespace AnimationSystem.Graph.Animations
             }
             var firstNode = graph.nodes.Find(n => n.GetType() == typeof(AnimationStartScript)) as AnimationStartScript;
             firstNode.OnProcess();
-            firstNode.ProcessAnimation(onComplete);
+            return firstNode.ProcessAnimation(onComplete);
         }
 
         public override void UpdateComputeOrder()

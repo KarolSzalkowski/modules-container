@@ -20,7 +20,7 @@ namespace AnimationSystem.Graph.Animations
 
 		public event Action OnComplete;
 
-		public void ProcessAnimation(Action onComplete)
+		public Sequence ProcessAnimation(Action onComplete)
         {
 			var firstPart = outputPorts[0].GetEdges()[0].inputNode as AnimationNode;
 
@@ -38,6 +38,7 @@ namespace AnimationSystem.Graph.Animations
 				onComplete?.Invoke();
 				sequence.Complete();
 			};
+			return sequence;
 		}
 
 		protected override void Process()

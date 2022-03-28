@@ -44,7 +44,7 @@ namespace AnimationSystem.Logic.Animation
         public void Play(Action onFinish = null)
         {
             //animationGraphCreator.FillParameters();
-            graphProcessor.RunAnimation(onFinish);
+            sequence = graphProcessor.RunAnimation(onFinish);
         }
 
         public void PlayInstantly() {}
