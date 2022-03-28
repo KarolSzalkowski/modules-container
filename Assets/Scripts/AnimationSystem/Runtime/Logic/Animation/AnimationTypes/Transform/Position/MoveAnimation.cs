@@ -1,12 +1,14 @@
 namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
 {
     using AnimationSystem.Graph.Animations.AnimationNodes.Transform;
+    using AnimationSystem.Graph.Animations.Creation.ParameterTypes;
     using AnimationSystem.Logic.Animation.Interfaces;
     using AnimationSystem.Logic.Animation.ParameterTypes;
     using DG.Tweening;
     using GraphProcessor;
     using Sirenix.OdinInspector;
     using System;
+    using System.Collections.Generic;
     using UnityEngine;
 
     [System.Serializable]
@@ -20,17 +22,17 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
         private bool useAnchor = false;
         
         [BoxGroup("UI Move Config"), SerializeField, Tooltip("Object target anchored position at the end of animation"), HideIf("useAnchor")]
-        private Vector2 targetPosition;
+        private Vector3ParameterData targetPosition;
         
         [BoxGroup("UI Init Anchor"), SerializeField, ShowIf("useAnchor")]
-        private Vector2 initialAnchorMin;
+        private Vector3ParameterData initialAnchorMin;
         [BoxGroup("UI Init Anchor"), SerializeField, ShowIf("useAnchor")]
-        private Vector2 initialAnchorMax;
+        private Vector3ParameterData initialAnchorMax;
 
         [BoxGroup("UI Destination Anchor"), SerializeField, ShowIf("useAnchor")]
-        private Vector2 destinationAnchorMin;
+        private Vector3ParameterData destinationAnchorMin;
         [BoxGroup("UI Destination Anchor"), SerializeField, ShowIf("useAnchor")]
-        private Vector2 destinationAnchorMax;
+        private Vector3ParameterData destinationAnchorMax;
 
         
         [field: SerializeField, BoxGroup("Main animation config")]
@@ -71,19 +73,24 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
         {
             if (useAnchor)
             {
+                //Vector3 initAnchMin = InitMinParameter == null ? initialAnchorMin :  (Vector3)InitMinParameter.value;
+                //Vector3 initAnchMax = InitMaxParameter == null ? initialAnchorMax : (Vector3)InitMaxParameter.value;
+                //Vector3 destAnchMin = DestMinParameter == null ? destinationAnchorMin : (Vector3)DestMinParameter.value;
+                //Vector3 destAnchMax = DestMaxParameter == null ? destinationAnchorMax : (Vector3)DestMaxParameter.value;
+
                 objectToMove.anchoredPosition = Vector2.zero;
-                objectToMove.anchorMin = initialAnchorMin;
-                objectToMove.anchorMax = initialAnchorMax;
+                objectToMove.anchorMin = initialAnchorMin.ParameterValue;
+                objectToMove.anchorMax = initialAnchorMax.ParameterValue;
                 
                 Sequence sequence = DOTween.Sequence();
-                sequence.Join(objectToMove.DOAnchorMin(destinationAnchorMin, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops));
-                sequence.Join(objectToMove.DOAnchorMax(destinationAnchorMax, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops));
+                sequence.Join(objectToMove.DOAnchorMin(destinationAnchorMin.ParameterValue, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops));
+                sequence.Join(objectToMove.DOAnchorMax(destinationAnchorMax.ParameterValue, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops));
                 return sequence;
             }
             else
             {
-                return objectToMove.DOAnchorPos(targetPosition, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
-
+                Vector2 targetPos = targetPosition == null ? targetPosition.ParameterValue : targetPosition.ParameterValue;
+                return objectToMove.DOAnchorPos(targetPos, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
             }
         }
 
@@ -92,7 +99,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
             objectToMove = gameObject.GetComponent<RectTransform>();
         }
 
-        public void SetParameter(AnchorType anchorType, Vector2 value)
+        public void SetParameter(AnchorType anchorType, Vector3ParameterData value)
         {
             switch (anchorType)
             {
@@ -111,7 +118,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position
             }
         }
 
-        public void SetParameter(Vector2 value)
+        public void SetParameter(Vector3ParameterData value)
         {
             targetPosition = value;
         }

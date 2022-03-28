@@ -82,7 +82,7 @@ MonoBehaviour:
       y: 21
       width: 150
       height: 200
-    opened: 1
+    opened: 0
     editorType:
       serializedType: AnimationSystem.Editor.Windows.Views.GameObjectParametersView,
         com.orizongroup.animation-system.Editor, Version=0.0.0.0, Culture=neutral,
@@ -105,8 +105,8 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 219, y: 413, z: 0}
-  scale: {x: 0.43232757, y: 0.43232757, z: 1}
+  position: {x: 264, y: 381, z: 0}
+  scale: {x: 0.49717674, y: 0.49717674, z: 1}
   AnimableObjects: []
   references:
     version: 1

@@ -26,12 +26,25 @@ namespace AnimationSystem.Logic.Animation
 
         public ParametersContainer ParametersContainer => animationGraphCreator.ParametersContainer;
 
+        private bool parametersFilled = false;
+        private AnimationProcessor graphProcessor;
+
+        private void Awake()
+        {
+            Initialize();
+        }
+
+        public void Initialize()
+        {
+            graphProcessor = new AnimationProcessor(animationGraphCreator.SampleGraph, ParametersContainer);
+            graphProcessor.SetParameters();
+        }
+
         [BoxGroup("ANIMATION"), Button("Play")]
         public void Play(Action onFinish = null)
         {
-            animationGraphCreator.FillParameters();
-            var graphProcessor = new AnimationProcessor(animationGraphCreator.SampleGraph);
-            graphProcessor.RunAnimation(onFinish);
+            //animationGraphCreator.FillParameters();
+            sequence = graphProcessor.RunAnimation(onFinish);
         }
 
         public void PlayInstantly() {}
