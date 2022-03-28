@@ -38,7 +38,6 @@ namespace AnimationSystem.Graph.Animations
 				onComplete?.Invoke();
 				sequence.Complete();
 			};
-			sequence.SetAutoKill(false);
 		}
 
 		protected override void Process()
