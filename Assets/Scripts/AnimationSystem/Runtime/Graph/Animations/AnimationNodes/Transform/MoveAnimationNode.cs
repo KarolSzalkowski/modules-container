@@ -47,7 +47,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 
         public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
-			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
+			SetAnimableObject((GameObject)(GetAssignedParameter().parameter.value));
 			var data = new SequenceTransitionData(MoveAnimation.GetTween(), sequenceAddType);
 			return GetSequenceDataFromPorts(data);
 		}

@@ -43,7 +43,7 @@ namespace AnimationSystem.Logic.Animation
         [BoxGroup("ANIMATION"), Button("Play")]
         public void Play(Action onFinish = null)
         {
-            //animationGraphCreator.FillParameters();
+            animationGraphCreator.FillParameters();
             sequence = graphProcessor.RunAnimation(onFinish);
         }
 

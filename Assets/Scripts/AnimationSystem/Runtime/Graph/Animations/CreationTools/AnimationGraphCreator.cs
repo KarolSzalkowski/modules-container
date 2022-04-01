@@ -297,9 +297,9 @@ namespace AnimationSystem.Graph.Animations.Creation
         /// </summary>
         private void FillAnimationParameters()
         {
-            FillParametersOfType<float, FloatParameter, FloatParameterData>(ref ParametersContainer.FloatParameterDatas);
-            FillParametersOfType<Vector3, Vector3Parameter, Vector3ParameterData>(ref ParametersContainer.Vector3ParameterDatas);
-            FillParametersOfType<string, StringParameter, StringParameterData>(ref ParametersContainer.StringParameterDatas);
+            //FillParametersOfType<float, FloatParameter, FloatParameterData>(ref ParametersContainer.FloatParameterDatas);
+            //FillParametersOfType<Vector3, Vector3Parameter, Vector3ParameterData>(ref ParametersContainer.Vector3ParameterDatas);
+            //FillParametersOfType<string, StringParameter, StringParameterData>(ref ParametersContainer.StringParameterDatas);
 
             var goParameters = new List<GameObjectParameterData>();
             foreach (var go in AnimableObjects)
