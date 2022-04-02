@@ -37,12 +37,12 @@ namespace AnimationSystem.Logic.Animation
         public void Initialize()
         {
             graphProcessor = new AnimationProcessor(animationGraphCreator.SampleGraph, ParametersContainer);
-            graphProcessor.SetParameters();
         }
 
         [BoxGroup("ANIMATION"), Button("Play")]
         public void Play(Action onFinish = null)
         {
+            graphProcessor.SetParameters();
             animationGraphCreator.FillParameters();
             sequence = graphProcessor.RunAnimation(onFinish);
         }
