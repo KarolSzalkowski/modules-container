@@ -61,9 +61,9 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
             baseGraph.NotifyNodeChanged(node);
         }
 
-        public void SetTargetSize(Vector2 size)
+        public void SetTargetSize(Vector3ParameterData size)
         {
-            targetSize.ParameterValue = size;
+            targetSize = size;
         }
     }
 }
