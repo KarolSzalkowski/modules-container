@@ -1,6 +1,7 @@
 namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
 {
     using AnimationSystem.Graph.Animations.AnimationNodes.Transform;
+    using AnimationSystem.Graph.Animations.Creation.ParameterTypes;
     using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
@@ -14,7 +15,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
         [BoxGroup("Object Config"), SerializeField, Tooltip("Object you want to change size")]
         private RectTransform objectToScale;
         [BoxGroup("Object Config"), SerializeField, Tooltip("Target Size")]
-        private Vector3 targetSize;
+        private Vector3ParameterData targetSize;
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public SequenceAddType SequenceAddType { get; private set; }
@@ -46,7 +47,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
 
         public Tween GetTween()
         {
-            return objectToScale.DOSizeDelta(targetSize, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
+            return objectToScale.DOSizeDelta(targetSize.ParameterValue, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
         }
 
         public void CreateNode(BaseGraph baseGraph, Vector2 position, ParameterNode goParameter)
@@ -62,7 +63,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Scale
 
         public void SetTargetSize(Vector2 size)
         {
-            targetSize = size;
+            targetSize.ParameterValue = size;
         }
     }
 }
