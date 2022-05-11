@@ -1,6 +1,7 @@
 namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
 {
     using AnimationSystem.Graph.Animations.AnimationNodes.Rendering;
+    using AnimationSystem.Graph.Animations.Creation.ParameterTypes;
     using AnimationSystem.Logic.Animation.Interfaces;
     using DG.Tweening;
     using GraphProcessor;
@@ -14,7 +15,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
         [BoxGroup("Change Color Config"), SerializeField]
         private CanvasGroup canvasToChange;
         [BoxGroup("Change Color Config"), SerializeField]
-        private float targetAlpha;
+        private FloatParameterData targetAlpha;
 
         [field: SerializeField, BoxGroup("Main animation config")]
         public SequenceAddType SequenceAddType { get; private set; }
@@ -51,7 +52,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
 
         public Tween GetTween()
         {
-            return canvasToChange.DOFade(targetAlpha, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
+            return canvasToChange.DOFade(targetAlpha.ParameterValue, AnimationTime).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
         }
 
         public void SetAnimableObject(GameObject gameObject)
@@ -59,7 +60,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha
             canvasToChange = gameObject.GetComponent<CanvasGroup>();
         }
 
-        public void SetTargetAlpha(float target)
+        public void SetTargetAlpha(FloatParameterData target)
         {
             targetAlpha = target;
         }

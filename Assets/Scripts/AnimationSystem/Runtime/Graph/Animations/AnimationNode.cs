@@ -77,5 +77,10 @@ namespace AnimationSystem.Graph.Animations
         {
 			return parametersContainer.Find(p => p.ParameterName == parameterName);
         }
+
+		protected FloatParameterData GetFloatParameterWithName(List<FloatParameterData> parametersContainer, string parameterName)
+        {
+			return parametersContainer.Find(p => p.ParameterName == parameterName);
+        }
 	}
 }

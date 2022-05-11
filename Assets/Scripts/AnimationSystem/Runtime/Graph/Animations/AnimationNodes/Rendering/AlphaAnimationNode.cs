@@ -5,6 +5,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Rendering
 	using AnimationSystem.Logic.Animation;
     using AnimationSystem.Logic.Animation.AnimationTypes.Rendering.ChangeAlpha;
     using System;
+    using AnimationSystem.Graph.Animations.Creation;
 
     [System.Serializable, NodeMenuItem("Animation/Rendering/Alpha Animation")]
 	public class AlphaAnimationNode : AnimationNode
@@ -22,14 +23,13 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Rendering
 		{
 		}
 
-		public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
+        public override void SetParameters(ParametersContainer parametersContainer)
+        {
+			SetParameter(parametersContainer, "targetAlpha");
+        }
+
+        public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
-			var alphaPort = inputPorts.Find(p => p.fieldName == "targetAlpha").GetEdges();
-			if (alphaPort.Count > 0)
-            {
-				var param = alphaPort[0].outputNode as ParameterNode;
-				ChangeAlphaAnimation.SetTargetAlpha((float)param.parameter.value);
-            }
 			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
 			var data = new SequenceTransitionData(ChangeAlphaAnimation.GetTween(), sequenceAddType);
 			return GetSequenceDataFromPorts(data);
@@ -54,5 +54,16 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Rendering
         public override void SetOptionalGOs(GameObject[] optionalGOs)
         {
         }
+
+		private void SetParameter(ParametersContainer parametersContainer, string portName)
+        {
+			var inputPort = inputPorts.Find(p => p.fieldName == portName);
+			var rotPort = inputPort.GetEdges();
+			if (rotPort.Count > 0)
+			{
+				var param = rotPort[0].outputNode as ParameterNode;
+				ChangeAlphaAnimation.SetTargetAlpha(GetFloatParameterWithName(parametersContainer.FloatParameterDatas, param.parameter.name));
+			}
+		}
     }
 }
