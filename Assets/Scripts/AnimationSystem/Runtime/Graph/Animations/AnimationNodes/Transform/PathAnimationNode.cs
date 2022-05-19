@@ -25,13 +25,9 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 		{
 		}
 
-        public override void SetParameters(ParametersContainer parametersContainer)
-        {
-			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
-		}
-
 		public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
+			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
 			var tween = PathAnimation.GetTween() as Tweener;
 			Action lookAt = GetLookAtAnimation();
 			if(lookAt != null)
