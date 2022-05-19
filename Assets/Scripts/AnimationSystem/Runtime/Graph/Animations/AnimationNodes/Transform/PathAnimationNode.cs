@@ -7,6 +7,7 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
     using AnimationSystem.Logic.Animation.AnimationTypes.Transform.Position;
     using DG.Tweening;
     using System.Collections.Generic;
+    using AnimationSystem.Graph.Animations.Creation;
 
     [System.Serializable, NodeMenuItem("Animation/Transform/Path Move Animation")]
 	public class PathAnimationNode : AnimationNode
@@ -24,6 +25,11 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 		{
 		}
 
+        public override void SetParameters(ParametersContainer parametersContainer)
+        {
+			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
+		}
+
 		public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
 			var tween = PathAnimation.GetTween() as Tweener;
@@ -32,7 +38,6 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
             {
 				tween.OnUpdate(new TweenCallback(lookAt));
             }
-			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
 			var data = new SequenceTransitionData(tween, sequenceAddType);
 			return GetSequenceDataFromPorts(data);
 		}
