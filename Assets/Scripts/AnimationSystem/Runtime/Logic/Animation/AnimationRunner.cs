@@ -40,7 +40,7 @@ namespace AnimationSystem.Logic.Animation
         }
 
         [BoxGroup("ANIMATION"), Button("Play")]
-        public void Play(Action onFinish = null)
+        public virtual void Play(Action onFinish = null)
         {
             graphProcessor = new AnimationProcessor(animationGraphCreator.SampleGraph, ParametersContainer);
             graphProcessor.SetParameters();
@@ -48,7 +48,7 @@ namespace AnimationSystem.Logic.Animation
             sequence = graphProcessor.RunAnimation(onFinish);
         }
 
-        public void PlayInstantly() {}
+        public virtual void PlayInstantly() {}
 
         /// <summary>
         /// Stops animation and kill sequence
@@ -68,7 +68,7 @@ namespace AnimationSystem.Logic.Animation
             sequence.Complete();
         }
         
-        public void SetAnimation(AnimationGraph animationGraph)
+        public virtual void SetAnimation(AnimationGraph animationGraph)
         {
             animationGraphCreator.SampleGraph = animationGraph;
         }
