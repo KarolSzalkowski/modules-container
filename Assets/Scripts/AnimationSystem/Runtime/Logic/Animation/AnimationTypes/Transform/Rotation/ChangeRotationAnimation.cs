@@ -6,6 +6,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
     using GraphProcessor;
     using Sirenix.OdinInspector;
     using System;
+    using AnimationSystem.Graph.Animations.Creation.ParameterTypes;
     using UnityEngine;
 
     [System.Serializable]
@@ -14,7 +15,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
         [BoxGroup("Object Config"), SerializeField, Tooltip("Object you want to change rotation")]
         private Transform objectToRotate;
         [BoxGroup("Object Config"), SerializeField, Tooltip("Target Rotation in euler angles")]
-        private Vector3 targetEulersRot;
+        private Vector3ParameterData targetEulersRot;
         [BoxGroup("Object Config"), SerializeField, Tooltip("If TRUE = rotation value is target value. If FALSE - target value is rotation angle")]
         private bool useToRotation = true;
 
@@ -55,9 +56,9 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
         public Tween GetTween()
         {
             if(!useToRotation)
-                return objectToRotate.DOLocalRotate(targetEulersRot, AnimationTime, RotateMode.Fast).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
+                return objectToRotate.DOLocalRotate(targetEulersRot.ParameterValue, AnimationTime, RotateMode.Fast).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
             else
-                return objectToRotate.DOLocalRotate(targetEulersRot, AnimationTime, RotateMode.LocalAxisAdd).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
+                return objectToRotate.DOLocalRotate(targetEulersRot.ParameterValue, AnimationTime, RotateMode.LocalAxisAdd).SetDelay(Delay).SetEase(Ease).SetLoops(Loops);
 
         }
 
@@ -66,7 +67,7 @@ namespace AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation
             objectToRotate = gameObject.GetComponent<Transform>();
         }
 
-        public void SetTargetRotation(Vector3 rot)
+        public void SetTargetRotation(Vector3ParameterData rot)
         {
             targetEulersRot = rot;
         }

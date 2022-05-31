@@ -4,7 +4,8 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 	using GraphProcessor;
 	using AnimationSystem.Logic.Animation;
 	using System;
-    using AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation;
+	using AnimationSystem.Graph.Animations.Creation;
+	using AnimationSystem.Logic.Animation.AnimationTypes.Transform.Rotation;
 
     [System.Serializable, NodeMenuItem("Animation/Transform/Rotate Animation")]
 	public class RotateAnimationNode : AnimationNode
@@ -22,15 +23,13 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
 		{
 		}
 
+		public override void SetParameters(ParametersContainer parametersContainer)
+		{
+			SetParameter(parametersContainer, "targetEulersRot");
+		}
+
 		public override SequenceTransitionData GetSequenceData(SequenceAddType sequenceAddType)
 		{
-			var inputPort = inputPorts.Find(p => p.fieldName == "targetEulersRot");
-			var rotPort = inputPort.GetEdges();
-			if (rotPort.Count > 0)
-			{ 
-				var param = rotPort[0].outputNode as ParameterNode;
-				ChangeRotationAnimation.SetTargetRotation((Vector3)param.parameter.value);
-			}
 			SetAnimableObject((GameObject)GetAssignedParameter().parameter.value);
 			var data = new SequenceTransitionData(ChangeRotationAnimation.GetTween(), sequenceAddType);
 			return GetSequenceDataFromPorts(data);
@@ -55,6 +54,17 @@ namespace AnimationSystem.Graph.Animations.AnimationNodes.Transform
         public override void SetOptionalGOs(GameObject[] optionalGOs)
         {
             throw new NotImplementedException();
+        }
+
+        private void SetParameter(ParametersContainer parametersContainer, string portName)
+        {
+	        var inputPort = inputPorts.Find(p => p.fieldName == portName);
+	        var rotPort = inputPort.GetEdges();
+	        if (rotPort.Count > 0)
+	        {
+		        var param = rotPort[0].outputNode as ParameterNode;
+		        ChangeRotationAnimation.SetTargetRotation(GetVector3ParameterWithName(parametersContainer.Vector3ParameterDatas, param.parameter.name));
+	        }
         }
 	}
 }
