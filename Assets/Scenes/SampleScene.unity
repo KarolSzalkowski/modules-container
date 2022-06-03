@@ -313,12 +313,28 @@ MonoBehaviour:
       ObjectToAnimate: {fileID: 963194225}
       ObjectAnimator: {fileID: 963194229}
     ParametersContainer:
-      Vector3ParameterDatas: []
+      Vector3ParameterDatas:
+      - ParameterName: TargetRot
+        ParameterValue: {x: 0, y: 180, z: 0}
+        ExposedParameterType:
+          guid: 
+          name: 
+          type: 
+          serializedValue:
+            serializedType: 
+            serializedName: 
+            serializedValue: 
+          input: 1
+          settings:
+            id: 0
+          val: {x: 0, y: 0, z: 0}
       FloatParameterDatas: []
       StringParameterDatas: []
     SampleGraph: {fileID: 11400000, guid: 554716b422ab4aa4894568834255812a, type: 2}
   references:
     version: 1
+    00000000:
+      type: {class: , ns: , asm: }
 --- !u!65 &355331146
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -18,7 +18,6 @@ MonoBehaviour:
   - id: 1
   - id: 2
   - id: 3
-  - id: 4
   edges:
   - GUID: 460b4df0-f0f2-4c55-8d19-f812fb77f26e
     owner: {fileID: 11400000}
@@ -36,19 +35,11 @@ MonoBehaviour:
     outputFieldName: output
     inputPortIdentifier: 
     outputPortIdentifier: output
-  - GUID: c724ffbd-493e-463b-8112-48753dca5cc1
+  - GUID: 7c208dd9-da3f-4a7b-afc3-1de612994122
     owner: {fileID: 11400000}
-    inputNodeGUID: 9af25918-11be-4e29-8034-285c3ec56041
-    outputNodeGUID: 3bee5956-0651-4c71-97a2-dac3f9fbd294
-    inputFieldName: animationInput
-    outputFieldName: outputAppend
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: 07c790c3-adb3-43cf-9e83-50183a4f6aba
-    owner: {fileID: 11400000}
-    inputNodeGUID: 9af25918-11be-4e29-8034-285c3ec56041
-    outputNodeGUID: ad68d4eb-c72b-4f87-8906-723d8862b362
-    inputFieldName: animableGo
+    inputNodeGUID: 3bee5956-0651-4c71-97a2-dac3f9fbd294
+    outputNodeGUID: 5ef8a27f-7505-4cb6-a3ee-f8bf97aa0be5
+    inputFieldName: targetEulersRot
     outputFieldName: output
     inputPortIdentifier: 
     outputPortIdentifier: output
@@ -68,7 +59,7 @@ MonoBehaviour:
   - position:
       serializedVersion: 2
       x: 0
-      y: 0
+      y: 28
       width: 150
       height: 200
     opened: 0
@@ -99,14 +90,15 @@ MonoBehaviour:
         com.orizongroup.animation-system.Editor, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   exposedParameters:
+  - id: 4
   - id: 5
   - id: 6
   - id: 7
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 264, y: 381, z: 0}
-  scale: {x: 0.49717674, y: 0.49717674, z: 1}
+  position: {x: 356, y: 322, z: 0}
+  scale: {x: 0.7561437, y: 0.7561437, z: 1}
   AnimableObjects: []
   references:
     version: 1
@@ -131,7 +123,7 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: 3bee5956-0651-4c71-97a2-dac3f9fbd294
-        computeOrder: 2
+        computeOrder: 3
         position:
           serializedVersion: 2
           x: -176
@@ -148,7 +140,21 @@ MonoBehaviour:
         outputJoin: 0
         ChangeRotationAnimation:
           objectToRotate: {fileID: 0}
-          targetEulersRot: {x: 0, y: -180, z: 0}
+          targetEulersRot:
+            ParameterName: TargetRot
+            ParameterValue: {x: 0, y: 180, z: 0}
+            ExposedParameterType:
+              guid: 
+              name: 
+              type: 
+              serializedValue:
+                serializedType: 
+                serializedName: 
+                serializedValue: 
+              input: 1
+              settings:
+                id: 8
+              val: {x: 0, y: 0, z: 0}
           useToRotation: 1
           <SequenceAddType>k__BackingField: 0
           <Delay>k__BackingField: 0
@@ -162,11 +168,11 @@ MonoBehaviour:
       data:
         nodeCustomName: 
         GUID: fd20d038-642d-4f2d-88de-d85902973df6
-        computeOrder: 1
+        computeOrder: 2
         position:
           serializedVersion: 2
-          x: -286.48837
-          y: 125.28396
+          x: -313
+          y: 117.06501
           width: 110
           height: 37
         expanded: 0
@@ -175,55 +181,23 @@ MonoBehaviour:
         parameterGUID: a1bfc5c8-5877-4b36-873e-cb522008b039
         accessor: 0
     00000003:
-      type: {class: PathAnimationNode, ns: AnimationSystem.Graph.Animations.AnimationNodes.Transform, asm: com.orizongroup.animation-system}
-      data:
-        nodeCustomName: 
-        GUID: 9af25918-11be-4e29-8034-285c3ec56041
-        computeOrder: 4
-        position:
-          serializedVersion: 2
-          x: 153.41
-          y: -121.66997
-          width: 100
-          height: 100
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        NodeId: 0
-        animationInput: 0
-        animableGo: {fileID: 0}
-        outputAppend: 0
-        outputJoin: 0
-        PathAnimation:
-          objectToMove: {fileID: 0}
-          movingPath:
-          - {x: 0, y: 0, z: 0}
-          pathType: 0
-          <SequenceAddType>k__BackingField: 0
-          <Delay>k__BackingField: 0
-          <Loops>k__BackingField: 0
-          <AnimationTime>k__BackingField: 0
-          <Ease>k__BackingField: 0
-          <AssignedNodeGUID>k__BackingField: 
-        lookAtAnimationNode: 0
-    00000004:
       type: {class: ParameterNode, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         nodeCustomName: 
-        GUID: ad68d4eb-c72b-4f87-8906-723d8862b362
-        computeOrder: 3
+        GUID: 5ef8a27f-7505-4cb6-a3ee-f8bf97aa0be5
+        computeOrder: 1
         position:
           serializedVersion: 2
-          x: 52
-          y: -75
-          width: 100
-          height: 100
+          x: -349.5
+          y: 200.19499
+          width: 91
+          height: 37
         expanded: 0
         debug: 0
         nodeLock: 0
-        parameterGUID: 9e86cbb1-d88f-4107-b735-b33d7adb546c
+        parameterGUID: 289b5912-91b2-4975-95e7-39f23cd17a51
         accessor: 0
-    00000005:
+    00000004:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         guid: a1bfc5c8-5877-4b36-873e-cb522008b039
@@ -235,9 +209,9 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 8
+          id: 9
         val: {fileID: 0}
-    00000006:
+    00000005:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         guid: 9e86cbb1-d88f-4107-b735-b33d7adb546c
@@ -249,9 +223,9 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 9
+          id: 10
         val: {fileID: 0}
-    00000007:
+    00000006:
       type: {class: GameObjectParameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         guid: dcd8dc2a-ff82-48f9-82a8-a1d39c05ca65
@@ -263,23 +237,45 @@ MonoBehaviour:
           serializedValue: 
         input: 1
         settings:
-          id: 10
+          id: 11
         val: {fileID: 0}
-    00000008:
-      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+    00000007:
+      type: {class: Vector3Parameter, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
-        isHidden: 0
-        expanded: 0
-        guid: a1bfc5c8-5877-4b36-873e-cb522008b039
+        guid: 289b5912-91b2-4975-95e7-39f23cd17a51
+        name: TargetRot
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          id: 12
+        val: {x: 0, y: 0, z: 0}
+    00000008:
+      type: {class: , ns: , asm: }
     00000009:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
-        guid: 9e86cbb1-d88f-4107-b735-b33d7adb546c
+        guid: a1bfc5c8-5877-4b36-873e-cb522008b039
     0000000A:
       type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
       data:
         isHidden: 0
         expanded: 0
+        guid: 9e86cbb1-d88f-4107-b735-b33d7adb546c
+    0000000B:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
         guid: dcd8dc2a-ff82-48f9-82a8-a1d39c05ca65
+    0000000C:
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        isHidden: 0
+        expanded: 0
+        guid: 289b5912-91b2-4975-95e7-39f23cd17a51

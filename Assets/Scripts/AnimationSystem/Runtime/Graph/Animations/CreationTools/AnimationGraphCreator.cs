@@ -180,6 +180,7 @@ namespace AnimationSystem.Graph.Animations.Creation
         }
 
         #endregion
+#endif
 
         #region Matching
         /// <summary>
@@ -255,9 +256,7 @@ namespace AnimationSystem.Graph.Animations.Creation
             return true;
         }
         #endregion
-
-#endif
-
+        
         #region Pre-Animation Filling
         /// <summary>
         /// Fills nodes values in animation graph.
