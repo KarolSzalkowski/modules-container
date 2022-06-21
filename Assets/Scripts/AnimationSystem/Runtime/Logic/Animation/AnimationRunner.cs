@@ -10,6 +10,7 @@ namespace AnimationSystem.Logic.Animation
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using UnityEditor;
     using UnityEngine;
 
@@ -40,12 +41,13 @@ namespace AnimationSystem.Logic.Animation
         }
 
         [BoxGroup("ANIMATION"), Button("Play")]
-        public virtual void Play(Action onFinish = null)
+        public virtual async Task Play(Action onFinish = null)
         {
             graphProcessor = new AnimationProcessor(animationGraphCreator.SampleGraph, ParametersContainer);
             graphProcessor.SetParameters();
             animationGraphCreator.FillParameters();
             sequence = graphProcessor.RunAnimation(onFinish);
+            await sequence.AsyncWaitForCompletion();
         }
 
         public virtual void PlayInstantly() {}
